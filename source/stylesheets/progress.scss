@@ -1,6 +1,7 @@
 $bg: rgba(0,0,0,0.05);
 $project-types: (
-  'build': lighten(#ff5e08, 20%),
+  'build': #FEC38A,
+  'web': #99DB94,
 );
 
 progress, progress[role] {
