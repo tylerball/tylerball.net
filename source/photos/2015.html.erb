@@ -4,5 +4,6 @@ date: 2015/01/01
 ---
 
 <% blog_post_images.each do |photo| %>
-  <%= image_tag photo.path, alt: photo.slug %>
+  <%= image_tag photo.url, alt: photo.name %>
+  <p><%= photo.name_without_year %></p>
 <% end %>

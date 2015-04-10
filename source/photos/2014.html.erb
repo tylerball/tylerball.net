@@ -1,0 +1,9 @@
+---
+title: 2014
+date: 2014/01/01
+---
+
+<% blog_post_images.each do |photo| %>
+  <%= image_tag photo.path, alt: photo.name %>
+  <p><%= photo.name_without_year %></p>
+<% end %>
