@@ -1,0 +1,20 @@
+h4 {
+  margin-bottom: 1em;
+}
+
+a {
+  color: $color-link;
+
+  &:hover {
+    color: #d03b00;
+  }
+
+  &:visited {
+    color: darken($color-link, 15%);
+  }
+}
+
+.site-title {
+  font-size: 1em;
+  color: black;
+}

@@ -1,0 +1,23 @@
+---
+blog: articles
+---
+<aside>
+  <%= image_tag 'photos/2015/01-barcelona.jpg' %>
+</aside>
+
+<section>
+  <p>I'm Tyler and I make things in Toronto, Canada.</p>
+</section>
+
+<% if blog.articles.length > 0 %>
+<section>
+  <h2>latest articles</h2>
+  <ul>
+    <% blog.articles[0...5].each do |article| %>
+      <li>
+        <a href="<%= article.url %>"><%= article.title %></a> <time><%= article.date.strftime('%b %e %Y') %></time> <%= "/ #{article.data[:description]}" if article.data[:description] %>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+</section>

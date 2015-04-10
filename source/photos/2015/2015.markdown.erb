@@ -1,0 +1,8 @@
+---
+title: 2015
+date: 2015/01/01
+---
+
+<% blog_post_images.each do |photo| %>
+  <%= image_tag photo.path, alt: photo.slug %>
+<% end %>

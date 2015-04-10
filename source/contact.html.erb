@@ -1,0 +1,21 @@
+---
+contact:
+- name: email me
+  href: mailto:tyler@tylerball.net
+- name: tumblr
+  href: https://blog.tylerball.net
+- name: instagram
+  href: https://instagram.com/tylerball
+- name: flickr
+  href: https://www.flickr.com/photos/tyman/
+- name: bookmarks
+  href: https://pinboard.in/u:tylerball
+---
+
+<section>
+  <ul class="unstyled">
+    <% current_page.data.contact.each do |f| %>
+      <li><%= link_to f.name, f.href %></li>
+    <% end %>
+  </ul>
+</section>

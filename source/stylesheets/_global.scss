@@ -1,0 +1,78 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding: 5%;
+  font-family: 'PT Mono', Courier, monospace;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header,
+nav,
+section {
+  margin-bottom: 2em;
+}
+
+main {
+  position: relative;
+  width: 48%;
+  max-width: 200em;
+
+  .offset & {
+    width: 23%;
+  }
+
+  @include breakpoint(smaller) {
+    width: 100%;
+  }
+}
+
+section {
+  position: relative;
+}
+
+aside {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 108%;
+
+  .offset & {
+    width: 73%;
+  }
+
+  @include breakpoint(smaller) {
+    position: static;
+  }
+}
+
+nav {
+  ul {
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+}
+
+ul,
+ol {
+  padding-left: 1em;
+}
+
+ul.unstyled {
+  padding: 0;
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+}

@@ -1,0 +1,83 @@
+$bg: rgba(0,0,0,0.05);
+$project-types: (
+  'build': lighten(#ff5e08, 20%),
+);
+
+progress, progress[role] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: $bg;
+  background-size: auto;
+  width: 100%;
+  height: 3.2em;
+}
+progress::-webkit-progress-bar {
+  background: $bg;
+}
+progress::-moz-progress-bar {
+  background: $bg;
+}
+.anim::-moz-progress-bar {
+  -moz-transition: width 3s ease-out;
+}
+.anim::-webkit-progress-value {
+  -webkit-transition: width 3s ease-out; 
+  -o-transition: width 3s ease-out; 
+  transition: width 3s ease-out; 
+}
+
+.project-progress.start::-moz-progress-bar {
+  width: 0% !important;
+}
+
+.project-progress.start::-webkit-progress-value {
+  width: 0% !important;
+}
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project {
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.project h4 {
+  position: absolute;
+  top: -0.25em;
+  left: 1em;
+  line-height: 1;
+  border: 0;
+}
+
+.key-list {
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.key-list li {
+  display: inline-block;
+  font-weight: bold;
+  padding: 1em;
+}
+
+@each $type, $color in $project-types {
+  .project-#{$type} progress::-moz-progress-bar {
+    background: $color;
+  }
+
+  .project-#{$type} progress::-webkit-progress-value {
+    background: $color;
+  }
+
+  .key-#{$type} {
+    background: $color;
+  }
+}

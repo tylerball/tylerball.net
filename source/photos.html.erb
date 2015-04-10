@@ -1,0 +1,19 @@
+---
+blog: photos
+---
+<h2>photos</h2>
+
+<section>
+  <ul>
+  </ul>
+
+  <ul>
+    <% blog.articles.each do |album| %>
+      <li><%= link_to album.title, album.url %></li>
+    <% end %>
+  </ul>
+
+  <aside>
+    <img src="" alt="">
+  </aside>
+</section>

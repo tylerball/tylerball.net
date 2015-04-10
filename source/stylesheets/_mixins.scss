@@ -1,0 +1,7 @@
+$points: (
+  smaller: 80em,
+);
+
+@mixin breakpoint($point) {
+  @media (max-width: map-get($points, $point)) { @content }
+}
