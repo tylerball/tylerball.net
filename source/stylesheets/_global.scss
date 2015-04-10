@@ -23,11 +23,16 @@ section {
 main {
   position: relative;
   width: 48%;
-  max-width: 200em;
+  max-width: 720px;
   margin-bottom: 5%;
 
   .offset & {
     width: 23%;
+  }
+
+  .photo-post & {
+    text-align: center;
+    margin: 0 auto;
   }
 
   @include breakpoint(smaller) {
@@ -76,4 +81,9 @@ ul.unstyled {
 
 img {
   max-width: 100%;
+}
+
+figcaption {
+  margin: 2em;
+  font-size: 13px;
 }

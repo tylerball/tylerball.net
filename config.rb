@@ -27,20 +27,12 @@ set :markdown_engine, :redcarpet
 # Helpers
 ###
 
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
+activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload
 end
-
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
 
 activate :inliner
 
@@ -62,6 +54,7 @@ activate :blog do |blog|
   blog.prefix = 'photos'
   blog.sources = "{title}.html"
   blog.permalink = "{title}.html"
+  blog.layout = 'photos'
 end
 
 # Build-specific configuration
