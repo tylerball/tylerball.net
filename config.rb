@@ -74,7 +74,7 @@ end
 
 activate :deploy do |deploy|
   deploy.method = :rsync
-  deploy.host   = 'rothko.tylerball.net'
-  deploy.path   = '/var/www/rothko.tylerball.net'
+  deploy.host   = 'tylerball.net'
+  deploy.path   = '/var/www/tylerball.net'
   deploy.user  = 'tyler'
 end
