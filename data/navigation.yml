@@ -1,7 +1,7 @@
-#- name: articles
-  #href: articles.html
 - name: photos
   href: /photos.html
+- name: articles
+  href: /articles.html
 - name: projects
   href: /projects.html
 - name: contact

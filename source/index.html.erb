@@ -12,10 +12,14 @@ blog: articles
 <% if blog.articles.length > 0 %>
 <section>
   <h2>latest articles</h2>
-  <ul>
+  <ul class="article-list unstyled">
     <% blog.articles[0...5].each do |article| %>
       <li>
-        <a href="<%= article.url %>"><%= article.title %></a> <time><%= article.date.strftime('%b %e %Y') %></time> <%= "/ #{article.data[:description]}" if article.data[:description] %>
+        <p>
+          <a href="<%= article.url %>"><%= article.title %></a> <time><%= article.date.strftime('%b %e %Y') %></time></p>
+        <% if article.data[:description] %>
+          <p><%= article.data[:description] %></p>
+        <% end %>
     </li>
   <% end %>
 </ul>
