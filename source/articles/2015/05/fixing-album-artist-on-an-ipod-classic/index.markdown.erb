@@ -1,0 +1,43 @@
+---
+title: Fixing Album Artist on an iPod Classic
+description: My old iPod doesn't display Album Artist, here's a script to move featured artists to the Track Name field.
+date: 2015-05-20
+published: true
+---
+
+Years ago Apple [added the "Album Artist" field to iTunes][itunes7], immediately solving the problem of grouping albums containing tracks with featured artists. For metadata anal-retentives like myself certain albums (rap mixtapes, collaborative albums, split singles) live in this grey area between single-artist albums and compilations. Just because _[I Got That Work][igtw]_ has a featured artist on almost every track does not make it a compilation–it's decidedly a work of Big Tymers. _[Psych Funk 101][pf101]_ is a compilation.
+
+Album Artist works great for this, but unfortunately doesn't work on any of the iPod Classics, which I use in my car, so albums formatted this way clutter the artist list with an entry for [every combination of featured artist][applsupport]. My solution is to move featured artists out of the Artist field and into the Track Name.
+
+READMORE
+
+So I wrote a [JXA script][jxa] to make this easier:
+
+<script src="https://gist.github.com/tylerball/62e2d072dce0da725fd4.js"></script>
+
+### To install:
+
+1. Open Script Editor (`/Applications/Utilities/Script Editor.app`)
+1. Create `~/Library/iTunes/Scripts` if it doesn't exist.
+1. Copy the code into a new Document. Make sure that the `JavaScript` script language is selected:
+
+    ![script type](<%= current_page.url %>scripttype.png)
+
+1. Save it as an `Application` File Format in that scripts folder.
+
+### To use:
+
+1. Select some tracks in iTunes and select start the script from the ![script menu](<%= current_page.url %>scripticon.png) in the menu bar.
+1. The script will prompt you for a [Regular Expression][regexp] with which to strip out the featured artist and move it to the Artist field. It's prefilled with [beets][beets]' default syntax.
+
+    ![Regex](<%= current_page.url %>regex.png)
+
+1. Behold your manageable iPod.
+
+[itunes7]:http://www.tunequest.org/new-to-itunes-album-artist/20060912/
+[igtw]:http://www.discogs.com/Big-Tymers-I-Got-That-Work/release/376905
+[pf101]:http://www.discogs.com/Various-Psych-Funk-101/master/202054
+[applsupport]:https://discussions.apple.com/thread/3340696?start=0&tstart=0
+[jxa]:https://github.com/dtinth/JXA-Cookbook/wiki
+[regexp]:https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+[beets]:http://beets.radbox.org/
