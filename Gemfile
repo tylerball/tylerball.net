@@ -11,5 +11,6 @@ gem "middleman-livereload", "~> 3.1.0"
 gem 'middleman-inliner', git: 'git@github.com:jamesdarvell/middleman-inliner.git', branch: 'jamesdarvell-patch-css-pipeline-respected'
 gem 'middleman-blog'
 gem 'middleman-deploy'
+gem "builder", "~> 3.0"
 
 gem 'pry'

@@ -12,6 +12,7 @@
     <%= stylesheet_inline_tag "normalize" %>
     <%= stylesheet_inline_tag "all" %>
     <%= yield_content :extra_css %>
+    <%= feed_tag :atom, "#{blog(:articles).options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>
 
   <body class="<%= page_classes %> <%= yield_content :page_classes %>">
