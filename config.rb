@@ -19,15 +19,12 @@
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
 
-activate :directory_indexes
-
 set :markdown_engine, :redcarpet
+set :markdown, smartypants: true
 
 ###
 # Helpers
 ###
-
-activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
 configure :development do
@@ -37,16 +34,14 @@ end
 activate :inliner
 
 set :css_dir, 'stylesheets'
-
 set :js_dir, 'javascripts'
-
-set :images_dir, 'images'
 
 activate :blog do |blog|
   blog.name = 'articles'
   blog.prefix = 'articles'
-  blog.sources = "{category}/{year}/{month}-{day}-{title}.html"
-  blog.permalink = "{category}/{year}/{title}.html"
+  blog.sources = "{year}/{month}/{title}/index.html"
+  blog.permalink = "{year}/{month}/{title}"
+  blog.layout = 'articles'
 end
 
 activate :blog do |blog|
@@ -57,6 +52,8 @@ activate :blog do |blog|
   blog.layout = 'photos'
 end
 
+activate :directory_indexes
+
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
@@ -64,9 +61,6 @@ configure :build do
 
   # Minify Javascript on build
   # activate :minify_javascript
-
-  # Enable cache buster
-  activate :asset_hash
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
