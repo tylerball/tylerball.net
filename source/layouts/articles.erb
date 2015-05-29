@@ -5,4 +5,19 @@
   <article>
     <%= yield %>
   </article>
+
+
+  <nav class="article-nav">
+    <div>
+      <% if current_page.previous_article %>
+        <%= link_to "<- older: #{current_page.previous_article.title}", current_page.previous_article.url %>
+      <% end %>
+    </div>
+
+    <div class="type--right">
+      <% if current_page.next_article %>
+        <%= link_to "newer: #{current_page.next_article.title} ->", current_page.next_article.url %>
+      <% end %>
+    </div>
+  </nav>
 <% end %>
