@@ -8,10 +8,45 @@ body {
 }
 
 body {
+  font-size: 16px;
   padding: 5%;
   font-family: 'PT Mono', Courier, monospace;
   background-size: cover;
   background-attachment: fixed;
+}
+
+h4 {
+  margin-bottom: 1em;
+}
+
+ul,
+ol {
+  padding-left: 1em;
+}
+
+li p {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+figcaption {
+  margin: 2em;
+  font-size: 13px;
+}
+
+a {
+  color: $color-link;
+
+  &:hover {
+    color: #d03b00;
+  }
+
+  &:visited {
+    color: darken($color-link, 15%);
+  }
 }
 
 header,
@@ -69,21 +104,16 @@ nav {
   }
 }
 
-ul,
-ol {
-  padding-left: 1em;
-}
-
 ul.unstyled {
   padding: 0;
   list-style-type: none;
 }
 
-img {
-  max-width: 100%;
+.site-title {
+  font-size: 1em;
+  color: black;
 }
 
-figcaption {
-  margin: 2em;
-  font-size: 13px;
+.type--right {
+  text-align: right;
 }
