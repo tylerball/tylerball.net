@@ -19,9 +19,12 @@ h4 {
   margin-bottom: 1em;
 }
 
-ul,
 ol {
-  padding-left: 1em;
+  list-style: decimal outside none;
+}
+
+ul {
+  list-style: disc outside none;
 }
 
 li p {
