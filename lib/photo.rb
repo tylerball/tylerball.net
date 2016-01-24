@@ -18,6 +18,6 @@ class Photo
   end
 
   def name_without_year
-    name.gsub(/\, \d+$/, '')
+    name.gsub(/\, [\d-]+$/, '')
   end
 end
