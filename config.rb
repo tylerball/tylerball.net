@@ -13,6 +13,7 @@ configure :development do
 end
 
 activate :inliner
+activate :imageoptim
 
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'

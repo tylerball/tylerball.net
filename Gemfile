@@ -12,5 +12,7 @@ gem 'middleman-inliner', git: 'git@github.com:jamesdarvell/middleman-inliner.git
 gem 'middleman-blog'
 gem 'middleman-deploy'
 gem "builder", "~> 3.0"
+gem 'middleman-imageoptim'
+gem 'image_optim_pack'
 
 gem 'pry'
