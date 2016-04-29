@@ -2,17 +2,17 @@
 # the following line to use "http://" instead
 source 'https://rubygems.org'
 
-gem "middleman", "~>3.3.10"
+gem "middleman", "~>4.1.7"
 gem 'nokogiri'
 gem 'redcarpet'
 
 # Live-reloading plugin
-gem "middleman-livereload", "~> 3.1.0"
-gem 'middleman-inliner', git: 'git@github.com:jamesdarvell/middleman-inliner.git', branch: 'jamesdarvell-patch-css-pipeline-respected'
-gem 'middleman-blog'
-gem 'middleman-deploy'
-gem "builder", "~> 3.0"
-gem 'middleman-imageoptim'
-gem 'image_optim_pack'
+gem "middleman-livereload", github: "middleman/middleman-livereload", branch: "master"
+gem "middleman-blog", github: "middleman/middleman-blog", branch: "master"
 
-gem 'pry'
+#gem 'middleman-deploy', github: 'middleman-contrib/middleman-deploy', branch: 'master'
+gem "builder", "~> 3.0"
+#gem 'middleman-imageoptim'
+#gem 'image_optim_pack'
+
+gem 'byebug'

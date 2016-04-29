@@ -9,21 +9,13 @@ Time.zone = "America/New_York"
 set :markdown_engine, :redcarpet
 set :markdown, smartypants: true
 
-###
-# Helpers
-###
-
-# Reload the browser automatically whenever files change
-configure :development do
-  activate :livereload
-end
+activate :livereload
 
 activate :external_pipeline,
   name: :gulp,
   command: "gulp #{'watch' unless build?}",
   source: '.tmp/dist',
   latency: 1
-
 
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
@@ -49,18 +41,5 @@ page "/articles/feed.xml", layout: false
 
 activate :directory_indexes
 
-# Build-specific configuration
 configure :build do
-  # Minify Javascript on build
-  # activate :minify_javascript
-
-  # Or use a different image path
-  # set :http_prefix, "/Content/images/"
-end
-
-activate :deploy do |deploy|
-  deploy.method = :rsync
-  deploy.host   = 'tylerball.net'
-  deploy.path   = '/var/www/tylerball.net'
-  deploy.user  = 'tyler'
 end
