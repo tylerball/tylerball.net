@@ -18,8 +18,12 @@ configure :development do
   activate :livereload
 end
 
-activate :inliner
-activate :imageoptim
+activate :external_pipeline,
+  name: :gulp,
+  command: "gulp #{'watch' unless build?}",
+  source: '.tmp/dist',
+  latency: 1
+
 
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
@@ -47,9 +51,6 @@ activate :directory_indexes
 
 # Build-specific configuration
 configure :build do
-  # For example, change the Compass output style for deployment
-  activate :minify_css
-
   # Minify Javascript on build
   # activate :minify_javascript
 
