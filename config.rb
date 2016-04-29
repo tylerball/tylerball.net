@@ -1,3 +1,9 @@
+require 'lib/inline_helper'
+require 'lib/blog_image_helpers'
+
+helpers InlineHelper
+helpers BlogImageHelpers
+
 Time.zone = "America/New_York"
 
 set :markdown_engine, :redcarpet
