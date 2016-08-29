@@ -1,2 +1,2 @@
 #/bin/sh
-rsync -avz build/ tyler@rothko.tylerball.net:/var/www/tylerball.net/
+rsync -Oavz --no-perms build/ tyler@rothko.tylerball.net:/var/www/tylerball.net/
