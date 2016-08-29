@@ -10,9 +10,6 @@ gem 'redcarpet'
 gem "middleman-livereload", github: "middleman/middleman-livereload", branch: "master"
 gem "middleman-blog", github: "middleman/middleman-blog", branch: "master"
 
-#gem 'middleman-deploy', github: 'middleman-contrib/middleman-deploy', branch: 'master'
 gem "builder", "~> 3.0"
-#gem 'middleman-imageoptim'
-#gem 'image_optim_pack'
 
 gem 'byebug'

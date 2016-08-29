@@ -17,6 +17,8 @@ activate :external_pipeline,
   source: '.tmp/dist',
   latency: 1
 
+# TODO activate :imageoptim
+
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 
@@ -40,6 +42,3 @@ end
 page "/articles/feed.xml", layout: false
 
 activate :directory_indexes
-
-configure :build do
-end
