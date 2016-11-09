@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/middleman/middleman-blog.git
-  revision: c1205be58323d1e9161716ec103fb85eaa6b9ea3
+  remote: https://github.com/middleman/middleman-blog.git
+  revision: 7b7eaa8213c07648cc8b16ac47c89c8ee2c37052
   branch: master
   specs:
     middleman-blog (4.0.1)
@@ -9,8 +9,8 @@ GIT
       tzinfo (>= 0.3.0)
 
 GIT
-  remote: git://github.com/middleman/middleman-livereload.git
-  revision: 0f0d7111ec82b8864871ecb7c2a8e2f7755b0d10
+  remote: https://github.com/middleman/middleman-livereload.git
+  revision: 3b2270003f5eac064214ded2e068f56f0b7d75cd
   branch: master
   specs:
     middleman-livereload (3.4.6)
@@ -147,4 +147,4 @@ DEPENDENCIES
   redcarpet
 
 BUNDLED WITH
-   1.11.2
+   1.13.6
