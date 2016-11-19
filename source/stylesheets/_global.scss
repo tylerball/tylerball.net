@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 body {
   font-size: 16px;
   padding: 5%;
@@ -66,11 +61,6 @@ main {
 
   .offset & {
     width: 23%;
-  }
-
-  .photo-post & {
-    text-align: center;
-    margin: 0 auto;
   }
 
   @include breakpoint(smaller) {

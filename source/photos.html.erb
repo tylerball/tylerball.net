@@ -3,13 +3,15 @@ blog: photos
 ---
 <h2>photos</h2>
 
-<section>
-  <ul>
-  </ul>
-
-  <ul>
-    <% blog.articles.each do |album| %>
-      <li><%= link_to album.title, album.url %></li>
-    <% end %>
-  </ul>
-</section>
+<div class="album-list">
+  <% blog.articles.each do |album| %>
+    <div class="album">
+      <% link_to album.url do %>
+        <%= image_tag "/#{blog_post_images(album.path).first.url}",
+        alt: blog_post_images(album.path).first.name
+      %>
+      <% end %>
+      <%= link_to album.title, album.url %>
+    </div>
+  <% end %>
+</div>

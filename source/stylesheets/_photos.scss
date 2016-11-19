@@ -1,15 +1,53 @@
 @import '~swiper/dist/css/swiper';
 
-.photo-post main {
+$max-container: calc(90vh - 8em);
+
+.photos main {
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  text-align: center;
+
+  img {
+    max-height: calc(100% - 2em);
+  }
+}
+
+.album-list {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+
+.album {
+  max-height: $max-container;
+  padding-right: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 60em) {
+    flex-basis: 33%;
+  }
+
+  @media (max-width: 60em) {
+    max-height: auto;
+  }
+
+  &:last-child {
+    padding: 0;
+  }
 }
 
 .swiper-container {
   width: calc(100% - 100px);
-  height: calc(90vh - 8em);
+  height: $max-container;
+
+  @include breakpoint(smaller) {
+    width: 100%;
+  }
 }
 
 .swiper-slide {
@@ -24,15 +62,15 @@
   &:last-child {
     margin-right: 0;
   }
-
-  img {
-    max-height: calc(100% - 2em);
-  }
 }
 
 .swiper-button-prev,
 .swiper-button-next {
   background: none;
+
+  @include breakpoint(smaller) {
+    display: none;
+  }
 }
 
 .swiper-pagination {
