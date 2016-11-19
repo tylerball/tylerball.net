@@ -1,0 +1,49 @@
+@import '~swiper/dist/css/swiper';
+
+.photo-post main {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.swiper-container {
+  width: calc(100% - 100px);
+  height: calc(90vh - 8em);
+}
+
+.swiper-slide {
+  width: auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  img {
+    max-height: calc(100% - 2em);
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background: none;
+}
+
+.swiper-pagination {
+  position: relative;
+  margin-top: 1em;
+}
+
+.swiper-pagination-bullet {
+  margin: 0.25em;
+}
+
+.swiper-pagination-bullet-active {
+  background: black;
+}

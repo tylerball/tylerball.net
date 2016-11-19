@@ -1,9 +1,16 @@
 <% content_for :page_classes, 'photo-post' %>
 <% wrap_layout :layout do %>
-  <% blog_post_images.each do |photo| %>
-    <figure>
-      <%= image_tag "/#{photo.url}", alt: photo.name %>
-      <figcaption><%= photo.name_without_year %></figcaption>
-    </figure>
-  <% end %>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% blog_post_images.each do |photo| %>
+        <figure class="swiper-slide">
+          <%= image_tag "/#{photo.url}", alt: photo.name %>
+          <figcaption><%= photo.name_without_year %></figcaption>
+        </figure>
+      <% end %>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next">&gt;</div>
+  <div class="swiper-button-prev">&lt;</div>
 <% end %>
