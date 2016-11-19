@@ -13,7 +13,7 @@ module InlineHelper
 
   def find_resource(path)
     sitemap.resources.select do |resource|
-      File.basename(resource.source_file, File.extname(resource.source_file)) == path
+      /#{path}\.css$/.match(resource.source_file)
     end.first
   end
 end

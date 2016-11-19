@@ -12,8 +12,10 @@ set :markdown, smartypants: true
 activate :livereload
 
 activate :external_pipeline,
-  name: :gulp,
-  command: "gulp #{'watch' unless build?}",
+  name: :webpack,
+  command: build? ?
+    "./node_modules/webpack/bin/webpack.js --bail -p" :
+    "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
   source: '.tmp/dist',
   latency: 1
 
