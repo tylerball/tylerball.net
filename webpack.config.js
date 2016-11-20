@@ -37,7 +37,6 @@ module.exports = {
           "css!sass?sourceMap&includePaths[]=" + __dirname + "/node_modules"
         )
       },
-      { test: /\.css$/, loader: "style!css" },
     ],
   },
 

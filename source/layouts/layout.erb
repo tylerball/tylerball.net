@@ -9,8 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 
     <link href='http://fonts.googleapis.com/css?family=Lato|PT+Mono' rel='stylesheet' type='text/css'>
-    <%= stylesheet_inline_tag "normalize" %>
-    <%= stylesheet_inline_tag "site" %>
+    <%= stylesheet_link_tag "site" %>
     <%= yield_content :extra_css %>
     <%= feed_tag :atom, "#{blog(:articles).options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>

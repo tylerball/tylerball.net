@@ -1,6 +1,7 @@
 $footer-height: 7em;
 $color-link: #ff5e08;
 
+@import 'normalize';
 @import 'mixins';
 @import 'global';
 @import 'articles';
