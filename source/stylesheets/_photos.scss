@@ -73,8 +73,8 @@ $max-container: calc(90vh - 8em);
 }
 
 .swiper-pagination {
-  position: relative;
-  margin-top: 1em;
+  width: 100%;
+  bottom: -2em;
 }
 
 .swiper-pagination-bullet {
