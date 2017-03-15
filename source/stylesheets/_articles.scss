@@ -1,37 +1,18 @@
 article {
-  font-family: 'Lato', sans-serif;
-  line-height: 1.4;
-  margin-bottom: 2em;
-
   &:after {
     content: '+';
-    margin-top: 2em;
     display: block;
     text-align: center;
   }
 
   figcaption {
     text-align: center;
-    margin-top: 1em;
+    margin-top: 1rem;
   }
 }
 
 .article_list {
   li {
     margin-bottom: 2em;
-  }
-}
-
-.article-nav {
-  div {
-    width: 50%;
-    float: left;
-    margin-bottom: 2em;
-  }
-}
-
-.articles_index {
-  h2 {
-    font-family: 'PT Mono', Courier, monospace;
   }
 }

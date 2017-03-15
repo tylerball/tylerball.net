@@ -25,5 +25,8 @@
   },
   "eslintConfig": {
     "plugins": []
+  },
+  "dependencies": {
+    "tachyons-sass": "^4.7.1"
   }
 }

@@ -3,9 +3,9 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <% blog_post_images.each do |photo| %>
-        <figure class="swiper-slide">
+        <figure class="swiper-slide ma0 mr4">
           <%= image_tag "/#{photo.url}", alt: photo.name %>
-          <figcaption><%= photo.name_without_year %></figcaption>
+          <figcaption class="ma2"><%= photo.name_without_year %></figcaption>
         </figure>
       <% end %>
     </div>

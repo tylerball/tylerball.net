@@ -1,6 +1,6 @@
 @import '~swiper/dist/css/swiper';
 
-$max-container: calc(90vh - 8em);
+$max-container: calc(90vh - 6rem);
 
 .photos main {
   margin: 0 auto;
@@ -8,7 +8,7 @@ $max-container: calc(90vh - 8em);
   max-width: 100%;
 
   img {
-    max-height: calc(100% - 2em);
+    max-height: calc(100% - 4rem);
   }
 }
 
@@ -56,7 +56,6 @@ $max-container: calc(90vh - 8em);
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-right: 30px;
 
   &:last-child {
     margin-right: 0;
@@ -66,6 +65,7 @@ $max-container: calc(90vh - 8em);
 .swiper-button-prev,
 .swiper-button-next {
   background: none;
+  width: 1rem;
 
   @include breakpoint(smaller) {
     display: none;

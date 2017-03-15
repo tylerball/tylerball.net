@@ -1,18 +1,16 @@
 ---
 blog: articles
 ---
-<aside>
-  <%= image_tag '/photos/2014/003-barcelona,%202014.jpg' %>
-</aside>
+<% content_for :page_classes, 'cover' %>
 
 <section>
-  <p>I'm Tyler and I make things in Toronto, Canada.</p>
+  <h1 class="f1-l f1-ns">I'm Tyler and I make things in Toronto, Canada.</h1>
 </section>
 
 <% if blog.articles.length > 0 %>
 <section>
-  <h2>latest articles</h2>
-  <ul class="article-list unstyled">
+  <h2 class="f3">latest articles</h2>
+  <ul class="list pa0">
     <% blog.articles[0...5].each do |article| %>
       <li>
         <p>

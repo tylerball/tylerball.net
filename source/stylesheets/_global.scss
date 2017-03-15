@@ -1,17 +1,5 @@
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
 body {
-  font-size: 16px;
   padding: 5vh;
-  font-family: 'PT Mono', Courier, monospace;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-h4 {
-  margin-bottom: 1em;
 }
 
 ol {
@@ -30,13 +18,9 @@ img {
   max-width: 100%;
 }
 
-figcaption {
-  margin: 2em;
-  font-size: 13px;
-}
-
 a {
-  color: $color-link;
+  @extend .link;
+  @extend .dark-red;
 
   &:hover {
     color: #d03b00;
@@ -47,8 +31,6 @@ a {
   }
 }
 
-header,
-nav,
 section {
   margin-bottom: 2em;
 }
@@ -85,28 +67,4 @@ aside {
   @include breakpoint(smaller) {
     position: static;
   }
-}
-
-nav {
-  ul {
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-  }
-}
-
-ul.unstyled {
-  padding: 0;
-  list-style-type: none;
-}
-
-.site-title {
-  font-size: 1em;
-  color: black;
-}
-
-.type--right {
-  text-align: right;
 }

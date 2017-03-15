@@ -7,14 +7,14 @@
   </article>
 
 
-  <nav class="article-nav">
-    <div>
+  <nav class="article-nav mv4">
+    <div class="w-50 fl mb4">
       <% if current_page.previous_article %>
         <%= link_to "<- older: #{current_page.previous_article.title}", current_page.previous_article.url %>
       <% end %>
     </div>
 
-    <div class="type--right">
+    <div class="w-50 fl tr mb4">
       <% if current_page.next_article %>
         <%= link_to "newer: #{current_page.next_article.title} ->", current_page.next_article.url %>
       <% end %>
