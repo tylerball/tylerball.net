@@ -1,7 +1,7 @@
-require 'lib/inline_helper'
-require 'lib/blog_image_helpers'
+Dir['lib/*'].each(&method(:load))
 
 helpers InlineHelper
+helpers BlogHelpers
 helpers BlogImageHelpers
 
 Time.zone = "America/New_York"
@@ -39,6 +39,14 @@ activate :blog do |blog|
   blog.sources = "{title}.html"
   blog.permalink = "{title}.html"
   blog.layout = 'photos'
+end
+
+activate :blog do |blog|
+  blog.name = 'music'
+  blog.prefix = 'music'
+  blog.sources = "{year}/{title}.html"
+  blog.permalink = "{year}/{title}"
+  blog.layout = 'articles'
 end
 
 page "/articles/feed.xml", layout: false
