@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem "middleman", "~>4.1.7"
+gem 'exif'
+gem "middleman"
 gem 'nokogiri'
 gem 'redcarpet'
 
