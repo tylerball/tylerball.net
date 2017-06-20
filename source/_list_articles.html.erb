@@ -1,0 +1,5 @@
+<p>
+  <a href="<%= article.url %>"><%= article.title %></a> <time><%= article.date.strftime('%b %e %Y') %></time></p>
+<% if article.data[:description] %>
+  <p><%= article.data[:description] %></p>
+<% end %>

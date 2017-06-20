@@ -1,0 +1,10 @@
+<p class="f6">
+  music:  <time><%= article.date.strftime('%b %e %Y') %></time>
+</p>
+<h2>
+  <a href="<%= article.url %>"><%= article.title %></a>
+</h2>
+<%= partial :youtube, locals: { id: article.data[:youtube] } %>
+<% if article.summary %>
+  <p><%= article.summary %></p>
+<% end %>
