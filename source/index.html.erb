@@ -1,14 +1,15 @@
----
-blog: articles
----
 <section>
   <h1 class="f1-l f1-ns">I'm Tyler and I make things in Toronto, Canada.</h1>
 </section>
 
 <section>
-  <% all_blog_articles_by_date[0...10].each do |article| %>
+  <% blog.articles[0...10].each do |article| %>
     <article class="mv5">
-      <%= partial "list_#{article.blog_options.name}", locals: { article: article } %>
+      <%= partial "list_#{article.data[:category]}", locals: { article: article } %>
     </article>
   <% end %>
 </section>
+
+<p class="tc">
+  <%= link_to 'visit the archive', :archives %>
+</p>

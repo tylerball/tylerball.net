@@ -11,7 +11,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato|PT+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
     <%= stylesheet_link_tag webpack_asset_path 'site.css' %>
-    <%= feed_tag :atom, "#{blog(:words).options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
+    <%= feed_tag :atom, "#{blog(:blog).options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>
 
   <body class="sans-serif <%= yield_content :page_classes %>"<%= yield_content :body_attrs %>>

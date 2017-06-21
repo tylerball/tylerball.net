@@ -1,8 +1,0 @@
----
-blog: music
----
-<% blog.articles[0...5].each do |article| %>
-    <article class="mv5">
-      <%= partial :list_music, locals: { article: article } %>
-    </article>
-<% end %>
