@@ -1,5 +1,7 @@
 body {
   padding: 5vh;
+  max-width: 45rem;
+  margin: 0 auto 5%;
 }
 
 ol {
@@ -12,10 +14,6 @@ ul {
 
 li p {
   margin-top: 0;
-}
-
-img {
-  max-width: 100%;
 }
 
 a {
@@ -33,38 +31,4 @@ a {
 
 section {
   margin-bottom: 2em;
-}
-
-main {
-  position: relative;
-  width: 48%;
-  max-width: 720px;
-  margin-bottom: 5%;
-
-  .offset & {
-    width: 23%;
-  }
-
-  @include breakpoint(smaller) {
-    width: 100%;
-  }
-}
-
-section {
-  position: relative;
-}
-
-aside {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  left: 108%;
-
-  .offset & {
-    width: 73%;
-  }
-
-  @include breakpoint(smaller) {
-    position: static;
-  }
 }

@@ -19,8 +19,6 @@ activate :external_pipeline,
   source: '.tmp/dist',
   latency: 1
 
-# TODO activate :imageoptim
-
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 
@@ -46,7 +44,7 @@ activate :blog do |blog|
   blog.prefix = 'music'
   blog.sources = "{year}/{title}.html"
   blog.permalink = "{year}/{title}"
-  blog.layout = 'articles'
+  blog.layout = 'music'
 end
 
 page "/articles/feed.xml", layout: false

@@ -1,6 +1,8 @@
 - name: photos
   href: /photos.html
-- name: articles
+- name: music
+  href: /music.html
+- name: words
   href: /articles.html
 - name: contact
   href: /contact.html
