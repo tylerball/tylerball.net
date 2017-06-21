@@ -10,8 +10,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lato|PT+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
-    <%= stylesheet_link_tag "site" %>
-    <%= yield_content :extra_css %>
+    <%= stylesheet_link_tag webpack_asset_path 'site.css' %>
     <%= feed_tag :atom, "#{blog(:articles).options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>
 
@@ -30,10 +29,10 @@
       <% end %>
       </ul>
     </nav>
-    <main role="main">
+    <main role="main" class="relative">
       <%= yield %>
     </main>
-    <%= javascript_include_tag "site" %>
+    <%= javascript_include_tag webpack_asset_path 'site.js' %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -1,5 +1,9 @@
+const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+
+const outputPath = path.join(__dirname, '.tmp/dist');
 
 module.exports = {
   entry: {
@@ -14,8 +18,9 @@ module.exports = {
   },
 
   output: {
-    path: __dirname + '/.tmp/dist',
-    filename: 'javascripts/[name].js',
+    path: outputPath,
+    filename: '[name].[hash].js',
+    publicPath: '/'
   },
 
   module: {
@@ -41,6 +46,9 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin("[name].css")
+    new ExtractTextPlugin("[name].[hash].css"),
+    new ManifestPlugin({
+      fileName: 'manifest.json'
+    }),
   ]
 };

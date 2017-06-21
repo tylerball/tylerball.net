@@ -2,13 +2,17 @@
 
 $max-container: calc(90vh - 6rem);
 
-.photos main {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 100%;
+.photo-album {
+  max-width: none;
 
-  img {
-    max-height: calc(100% - 4rem);
+  main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+
+    img {
+      max-height: calc(100% - 4rem);
+    }
   }
 }
 

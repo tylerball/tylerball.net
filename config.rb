@@ -3,6 +3,7 @@ Dir['lib/*'].each(&method(:load))
 helpers InlineHelper
 helpers BlogHelpers
 helpers BlogImageHelpers
+helpers AssetHelper
 
 Time.zone = "America/New_York"
 
