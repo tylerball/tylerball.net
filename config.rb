@@ -24,7 +24,7 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 
 activate :blog do |blog|
-  blog.name = 'articles'
+  blog.name = 'words'
   blog.prefix = 'articles'
   blog.sources = "{year}/{month}/{title}/index.html"
   blog.permalink = "{year}/{month}/{title}"

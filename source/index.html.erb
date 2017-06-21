@@ -6,7 +6,7 @@ blog: articles
 </section>
 
 <section>
-  <% all_blog_articles[0...10].each do |article| %>
+  <% all_blog_articles_by_date[0...10].each do |article| %>
     <article class="mv5">
       <%= partial "list_#{article.blog_options.name}", locals: { article: article } %>
     </article>
