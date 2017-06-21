@@ -4,6 +4,7 @@ gem 'exif'
 gem "middleman"
 gem 'nokogiri'
 gem 'redcarpet'
+gem 'rmagick'
 
 # Live-reloading plugin
 gem "middleman-livereload", git: "https://github.com/middleman/middleman-livereload.git", branch: "master"

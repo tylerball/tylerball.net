@@ -1,16 +1,15 @@
 <% content_for :page_classes, 'photo-post' %>
 <% wrap_layout :layout do %>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <% blog_post_images.each do |photo| %>
-        <figure class="swiper-slide ma0 mr4">
-          <%= image_tag "/#{photo.url}", alt: photo.name %>
-          <figcaption class="ma2"><%= photo.name_without_year %></figcaption>
-        </figure>
-      <% end %>
-    </div>
-  </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-next">&gt;</div>
-  <div class="swiper-button-prev">&lt;</div>
+  <figure class="mh0">
+    <%= image_tag current_article.data[:photo], alt: current_article.title %>
+    <figcaption class="mv2"><%= current_article.title %></figcaption>
+  </figure>
+
+  <article>
+    <%= yield %>
+  </article>
+
+  <p class="mt5 f6 tc">
+    <%= link_to "#{current_article.date.year} photos", blog_year_path(current_article.date.year) %>
+  </p>
 <% end %>

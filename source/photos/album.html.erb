@@ -1,0 +1,18 @@
+<% content_for :page_classes, 'photo-album' %>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <% page_articles.sort_by { |a| a.slug }.each do |photo| %>
+      <figure class="swiper-slide ma0 mr4">
+        <%= image_tag photo.data[:photo], alt: photo.title %>
+        <figcaption class="ma2">
+          <% link_to photo.url do %>
+            <%= photo.title %>
+          <% end %>
+        </figcaption>
+      </figure>
+    <% end %>
+  </div>
+</div>
+<div class="swiper-pagination"></div>
+<div class="swiper-button-next">&gt;</div>
+<div class="swiper-button-prev">&lt;</div>

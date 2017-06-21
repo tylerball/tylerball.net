@@ -3,6 +3,11 @@ class Photo
 
   def initialize(path)
     @path = path
+    @filename = path.basename.to_s.gsub(path.extname, '')
+  end
+
+  def year
+    /\d{4}/.match(path.to_s)[0]
   end
 
   def url
@@ -10,11 +15,11 @@ class Photo
   end
 
   def slug
-    path.basename.to_s.gsub(path.extname, '')
+    @filename.gsub(' ', '-').gsub(',', '')
   end
 
   def name
-    /\d+-(.*)/.match(slug)[1]
+    /\d+-(.*)/.match(@filename)[1]
   end
 
   def name_without_year

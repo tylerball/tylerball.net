@@ -34,9 +34,10 @@ end
 activate :blog do |blog|
   blog.name = 'photos'
   blog.prefix = 'photos'
-  blog.sources = "{title}.html"
-  blog.permalink = "{title}.html"
+  blog.sources = "{year}/{title}.html"
+  blog.permalink = "{year}/{title}"
   blog.layout = 'photos'
+  blog.year_template = 'photos/album.html'
 end
 
 activate :blog do |blog|

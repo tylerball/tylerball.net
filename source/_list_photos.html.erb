@@ -1,0 +1,17 @@
+<p class="f6">
+  photo: <time><%= article.date.strftime('%b %e %Y') %></time>
+</p>
+<h2>
+  <% link_to article.url do %>
+    <%= article.title %>
+  <% end %>
+</h2>
+<p class="mb2">
+  <% link_to article.url do %>
+    <%= image_tag article.data[:thumb], alt: article.title, class: 'mw-100' %>
+  <% end %>
+</p>
+</figure>
+<% if article.data[:description] %>
+  <p><%= article.data[:description] %></p>
+<% end %>

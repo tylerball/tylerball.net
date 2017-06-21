@@ -8,12 +8,9 @@ blog: articles
 </section>
 
 <section>
-  <h2 class="f3">latest</h2>
-  <ul class="list pa0">
-    <% all_blog_articles[0...5].each do |article| %>
-      <li class="mv4">
-        <%= partial "list_#{article.blog_options.name}", locals: { article: article } %>
-      </li>
-    <% end %>
-  </ul>
+  <% all_blog_articles[0...10].each do |article| %>
+    <article class="mv5">
+      <%= partial "list_#{article.blog_options.name}", locals: { article: article } %>
+    </article>
+  <% end %>
 </section>
