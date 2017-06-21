@@ -1,6 +1,6 @@
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
-  _blog = blog(:words)
+  _blog = blog(:blog)
   site_url = "http://tylerball.net/"
   xml.title "tylerball.net"
   xml.subtitle ""
