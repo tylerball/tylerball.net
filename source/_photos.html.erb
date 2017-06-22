@@ -3,12 +3,12 @@
 <div class="album-list">
   <% articles.group_by { |a| a.date.year }.each do |year, articles| %>
     <div class="album">
-      <% link_to "/photos/#{year}" do %>
+      <% link_to category_path('photos') + year.to_s do %>
         <%= image_tag articles.first.data[:thumb],
           alt: "photos from #{year}"
         %>
       <% end %>
-      <%= link_to year, blog_year_path(year), class: 'mv2' %>
+      <%= link_to year, category_path('photos') + year.to_s, class: 'mv2' %>
     </div>
   <% end %>
 </div>
