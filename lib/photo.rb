@@ -15,7 +15,7 @@ class Photo
   end
 
   def slug
-    @filename.gsub(' ', '-').gsub(',', '')
+    @filename.gsub(' ', '-').gsub(',', '').downcase
   end
 
   def name

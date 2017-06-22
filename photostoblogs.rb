@@ -5,18 +5,21 @@ require 'rmagick'
 require './lib/photo'
 
 def template_path(file)
-    URI::encode(File.join('/photos/',
-                          File.dirname(file).split('/').last,
-                          File.basename(file)).to_s)
+  root = Pathname.new(File.join(Dir.pwd, 'source'))
+  file = Pathname.new(file)
+  URI::encode('/' + file.relative_path_from(root).to_s)
 end
 
 CONTENT_RE = /---.*---(.*)/m
 
-Dir.glob('source/photos/**/*.jpg').each do |photo_file|
+Dir.glob('source/photos/*/*.jpg').each do |photo_file|
   next if photo_file.include?('-thumb')
   photo = Photo.new(Pathname.new(photo_file))
-  dest_file = File.join(Dir.pwd, "source/photos/#{photo.year}/#{photo.slug}.html.markdown.erb")
-  thumb = File.join(Dir.pwd, "source/photos/#{photo.year}/#{photo.slug}-thumb.jpg")
+  dest_dir = FileUtils.mkdir_p(File.join(Dir.pwd, "source/photos/#{photo.year}/#{photo.slug}")).first
+  dest_post = File.join(dest_dir, 'index.html.markdown.erb')
+  thumb = File.join(dest_dir, "#{photo.slug}-thumb.jpg")
+  dest_image = File.join(dest_dir, "#{photo.slug}.jpg")
+  FileUtils.cp(photo_file, dest_image)
 
   exif = Exif::Data.new(photo_file)
   date = if exif.date_time_original
@@ -30,7 +33,7 @@ Dir.glob('source/photos/**/*.jpg').each do |photo_file|
   thumb_img.resize_to_fill!(720, 360)
   target.composite(thumb_img, Magick::CenterGravity, Magick::CopyCompositeOp).write(thumb)
 
-  filename = template_path(photo_file)
+  filename = template_path(dest_image)
   thumb_path = template_path(thumb)
 
   content = ''
@@ -43,13 +46,13 @@ Dir.glob('source/photos/**/*.jpg').each do |photo_file|
   content << "thumb: #{thumb_path}\n"
   content << "---"
 
-  if File.exist?(dest_file)
-    content << CONTENT_RE.match(File.read(dest_file))[1]
+  if File.exist?(dest_post)
+    content << CONTENT_RE.match(File.read(dest_post))[1]
   end
 
-  puts "writing #{dest_file}"
+  puts "writing #{dest_post}"
 
-  File.open(dest_file, 'w') do |file|
+  File.open(dest_post, 'w') do |file|
     file.write content
   end
 end
