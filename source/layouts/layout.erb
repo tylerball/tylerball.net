@@ -21,7 +21,7 @@
     <nav class="mb4">
       <ul class="list pa0">
       <% data.navigation.each do |item| %>
-        <% if current_page.path == File.basename(item.href) %>
+        <% if File.basename(current_page.path, File.extname(current_page.path)) == File.basename(item.href) %>
           <li class="dib"><%= item.name %></li>
         <% else %>
           <li class="dib"><%= link_to item.name, item.href %></li>
