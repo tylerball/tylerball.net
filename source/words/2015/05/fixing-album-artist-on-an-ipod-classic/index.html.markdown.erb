@@ -21,16 +21,16 @@ So I wrote a [JXA script][jxa] to make this easier:
 1. Create `~/Library/iTunes/Scripts` if it doesn't exist.
 1. Copy the code into a new Document. Make sure that the `JavaScript` script language is selected:
 
-    ![script type](<%= current_page.url %>scripttype.png)
+    ![script type](<%= blog_file('scripttype.png') %>)
 
 1. Save it as an `Application` File Format in that scripts folder.
 
 ### To use:
 
-1. Select some tracks in iTunes and select start the script from the ![script menu](<%= current_page.url %>scripticon.png) in the menu bar.
+1. Select some tracks in iTunes and select start the script from the ![script menu](<%= blog_file('scripticon.png') %>) in the menu bar.
 1. The script will prompt you for a [Regular Expression][regexp] with which to strip out the featured artist and move it to the Artist field. It's prefilled with [beets][beets]' default syntax.
 
-    ![Regex](<%= current_page.url %>regex.png)
+    ![Regex](<%= blog_file('regex.png') %>)
 
 1. Behold your manageable iPod.
 

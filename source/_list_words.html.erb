@@ -1,9 +1,9 @@
-<p class="f6">
-  <%= partial :article_meta, locals: { article: article } %>
-</p>
-<h2>
-  <%= article_title(article) %>
-</h2>
-<% if article.data[:description] %>
-  <p><%= article.data[:description] %></p>
-<% end %>
+<article class="lh-copy mb4">
+  <p class="f6">
+    <%= partial :article_meta, locals: { article: article } %>
+  </p>
+  <h2>
+    <%= article_title(article) %>
+  </h2>
+  <%= article.summary %>
+</article>

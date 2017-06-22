@@ -1,3 +1,4 @@
-<% blog.articles.select { |a| a.data[:category] == category }.each do |article| %>
-  <%= article.title %>
-<% end %>
+---
+paginate: true
+---
+<%= partial category, locals: { articles: articles } %>

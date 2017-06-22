@@ -24,29 +24,30 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 
 activate :blog do |blog|
-  blog.name = 'words'
-  blog.prefix = 'articles'
-  blog.sources = "{year}/{month}/{title}/index.html"
-  blog.permalink = "{year}/{month}/{title}"
+  blog.name = 'blog'
+  blog.sources = "{category}/{year}/{title}/index.html"
+  blog.permalink = "{category}/{year}/{month}/{title}"
   blog.layout = 'articles'
   blog.paginate = true
+  blog.custom_collections = {
+    category: {
+      link: '/{category}.html',
+      template: '/category.html'
+    }
+  }
+  blog.year_template = 'calendar.html'
 end
 
-activate :blog do |blog|
-  blog.name = 'photos'
-  blog.prefix = 'photos'
-  blog.sources = "{year}/{title}.html"
-  blog.permalink = "{year}/{title}"
-  blog.layout = 'photos'
-  blog.year_template = 'photos/album.html'
-end
+ignore 'photos/album.html'
 
-activate :blog do |blog|
-  blog.name = 'music'
-  blog.prefix = 'music'
-  blog.sources = "{year}/{title}.html"
-  blog.permalink = "{year}/{title}"
-  blog.layout = 'music'
+ready do
+  sitemap.resources.select { |resource| resource.is_a? Middleman::Blog::BlogArticle }
+    .select { |a| a.data[:category] == 'photos' }
+    .group_by { |a| a.date.year }.each do |year, photos|
+      proxy "/photos/#{year}.html", 'photos/album.html', locals: {
+        photos: photos
+      }
+  end
 end
 
 page "/articles/feed.xml", layout: false

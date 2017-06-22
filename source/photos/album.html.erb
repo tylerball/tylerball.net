@@ -1,7 +1,7 @@
 <% content_for :page_classes, 'photo-album' %>
 <div class="swiper-container">
   <div class="swiper-wrapper">
-    <% page_articles.sort_by { |a| a.slug }.each do |photo| %>
+    <% photos.sort_by { |a| a.slug }.each do |photo| %>
       <figure class="swiper-slide ma0 mr4">
         <%= image_tag photo.data[:photo], alt: photo.title %>
         <figcaption class="ma2">

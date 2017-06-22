@@ -1,9 +1,9 @@
 <h2>photos</h2>
 
 <div class="album-list">
-  <% blog.articles.group_by { |a| a.date.year }.each do |year, articles| %>
+  <% articles.group_by { |a| a.date.year }.each do |year, articles| %>
     <div class="album">
-      <% link_to blog_year_path(year) do %>
+      <% link_to "/photos/#{year}" do %>
         <%= image_tag articles.first.data[:thumb],
           alt: "photos from #{year}"
         %>

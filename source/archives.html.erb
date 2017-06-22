@@ -1,3 +1,7 @@
-<% all_blog_articles_by_date.group_by { |a| a.date.year }.each do |year, articles| %>
-  <a href="/archives/<%= year %>"><%= year %></a>
-<% end %>
+<ul class="list pl0 lh-copy">
+  <% blog.articles.group_by { |a| a.date.year }.each do |year, articles| %>
+    <li>
+      <%= link_to year, blog_year_path(year) %>
+    </li>
+  <% end %>
+</ul>

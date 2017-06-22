@@ -1,10 +1,12 @@
-<p class="f6">
-  <%= partial :article_meta, locals: { article: article } %>
-</p>
-<h2>
-  <%= article_title(article) %>
-</h2>
-<%= partial :youtube, locals: { id: article.data[:youtube] } %>
-<% if article.summary %>
-  <p><%= article.summary %></p>
-<% end %>
+<article class="mv5">
+  <p class="f6">
+    <%= partial :article_meta, locals: { article: article } %>
+  </p>
+  <h2>
+    <%= article_title(article) %>
+  </h2>
+  <%= partial :youtube, locals: { id: article.data[:youtube] } %>
+  <% if article.summary %>
+    <p><%= article.summary %></p>
+  <% end %>
+</article>

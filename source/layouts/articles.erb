@@ -1,22 +1,28 @@
-<% wrap_layout :layout do %>
-  <h1><%= current_page.title %></h1>
-  <p><time><%= current_page.date.strftime('%b %e %Y') %></time></p>
-
-  <article>
+<% if current_page.data[:category] == 'photos' %>
+  <% wrap_layout :photo do %>
     <%= yield %>
-  </article>
+  <% end %>
+<% else %>
+  <% wrap_layout :layout do %>
+    <h1><%= current_page.title %></h1>
+    <p><time><%= current_page.date.strftime('%b %e %Y') %></time></p>
 
-  <nav class="article-nav mv4">
-    <div class="w-50 fl mb4">
-      <% if current_page.article_previous %>
-        <%= link_to "<- older: #{current_page.article_previous.title}", current_page.article_previous.url %>
-      <% end %>
-    </div>
+    <article>
+      <%= yield %>
+    </article>
 
-    <div class="w-50 fl tr mb4">
-      <% if current_page.article_next %>
-        <%= link_to "newer: #{current_page.article_next.title} ->", current_page.article_next.url %>
-      <% end %>
-    </div>
-  </nav>
+    <nav class="article-nav mv4">
+      <div class="w-50 fl mb4">
+        <% if current_page.article_previous %>
+          <%= link_to "<- older: #{current_page.article_previous.title}", current_page.article_previous.url %>
+        <% end %>
+      </div>
+
+      <div class="w-50 fl tr mb4">
+        <% if current_page.article_next %>
+          <%= link_to "newer: #{current_page.article_next.title} ->", current_page.article_next.url %>
+        <% end %>
+      </div>
+    </nav>
+  <% end %>
 <% end %>

@@ -1,15 +1,17 @@
-<p class="f6">
-  <%= partial :article_meta, locals: { article: article } %>
-</p>
-<h2>
-  <%= article_title(article) %>
-</h2>
-<p class="mb2">
-  <% link_to article.url do %>
-    <%= image_tag article.data[:thumb], alt: article.title, class: 'mw-100' %>
+<article>
+  <p class="f6">
+    <%= partial :article_meta, locals: { article: article } %>
+  </p>
+  <h2>
+    <%= article_title(article) %>
+  </h2>
+  <p class="mb2">
+    <% link_to article.url do %>
+      <%= image_tag article.data[:thumb], alt: article.title, class: 'mw-100' %>
+    <% end %>
+  </p>
+  </figure>
+  <% if article.data[:description] %>
+    <p><%= article.data[:description] %></p>
   <% end %>
-</p>
-</figure>
-<% if article.data[:description] %>
-  <p><%= article.data[:description] %></p>
-<% end %>
+</article>

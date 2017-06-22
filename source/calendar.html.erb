@@ -1,0 +1,10 @@
+<section>
+  <h2>
+    <%= year %>
+  </h2>
+  <div class="album-list">
+    <% articles.each do |article| %>
+      <%= partial "list_#{article.data[:category]}", locals: { article: article } %>
+    <% end %>
+  </div>
+<section>
