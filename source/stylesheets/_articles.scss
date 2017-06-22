@@ -1,4 +1,8 @@
 article {
+  .index & {
+    margin: 4rem 0;
+  }
+
   &:after {
     content: '+';
     display: block;
@@ -9,9 +13,6 @@ article {
   figcaption {
     text-align: center;
     margin-top: 1rem;
-  }
-
-  iframe {
   }
 }
 
