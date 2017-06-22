@@ -9,7 +9,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 
     <link href='http://fonts.googleapis.com/css?family=Lato|PT+Mono' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.6.1/css/tachyons.min.css"/>
     <%= stylesheet_link_tag webpack_asset_path 'site.css' %>
     <%= feed_tag :atom, "#{blog(:blog).options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>

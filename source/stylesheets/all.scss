@@ -1,9 +1,7 @@
 $footer-height: 7em;
 $color-link: #ff5e08;
 
-@import '~tachyons-sass/scss/colors';
-@import '~tachyons-sass/scss/links';
-@import '~tachyons-sass/scss/skins';
+@import '~tachyons-sass/tachyons';
 @import 'mixins';
 @import 'global';
 @import 'articles';
