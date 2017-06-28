@@ -1,1 +1,1 @@
-<strong><%= article.blog_options[:name] %>:</strong> <time><%= article.date.strftime('%b %e %Y').downcase %></time>
+<strong class="meta"><%= link_to "#{article.data[:category]}:", category_path(article.data[:category]) %></strong> <time><%= article.date.strftime('%b %e %Y').downcase %></time>
