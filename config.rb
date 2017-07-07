@@ -48,6 +48,6 @@ ready do
   end
 end
 
-page "/articles/feed.xml", layout: false
+page "/feed.xml", layout: false
 
 activate :directory_indexes
