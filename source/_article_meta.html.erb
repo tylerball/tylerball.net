@@ -1,1 +1,5 @@
-<strong class="meta"><%= link_to "#{article.data[:category]}:", category_path(article.data[:category]) %></strong> <time><%= article.date.strftime('%b %e %Y').downcase %></time>
+<% unless defined?(:rss) %>
+  <p class="f6">
+    <strong class="meta"><%= link_to "#{article.data[:category]}:", category_path(article.data[:category]) %></strong> <time><%= article.date.strftime('%b %e %Y').downcase %></time>
+  </p>
+<% end %>

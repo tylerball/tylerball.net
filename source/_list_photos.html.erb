@@ -1,10 +1,6 @@
 <article>
-  <p class="f6">
-    <%= partial :article_meta, locals: { article: article } %>
-  </p>
-  <h2>
-    <%= article_title(article) %>
-  </h2>
+  <%= partial :article_meta, locals: { article: article } %>
+  <%= article_title(article) %>
   <p class="mb2">
     <% link_to article.url do %>
       <%= image_tag article.data[:thumb], alt: article.title, class: 'mw-100' %>
