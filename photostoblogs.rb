@@ -44,7 +44,7 @@ Dir.glob('source/photos/*/*.jpg').each do |photo_file|
   content << "date: #{date}\n"
   content << "photo: #{filename}\n"
   content << "thumb: #{thumb_path}\n"
-  content << "---"
+  content << "---\n"
 
   if File.exist?(dest_post)
     content << CONTENT_RE.match(File.read(dest_post))[1]
