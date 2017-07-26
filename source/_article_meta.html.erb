@@ -1,4 +1,4 @@
-<% unless defined?(:rss) %>
+<% unless current_page.path.include?('xml') %>
   <p class="f6">
     <strong class="meta"><%= link_to "#{article.data[:category]}:", category_path(article.data[:category]) %></strong> <time><%= article.date.strftime('%b %e %Y').downcase %></time>
   </p>

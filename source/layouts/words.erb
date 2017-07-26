@@ -1,6 +1,6 @@
 <% wrap_layout :layout do %>
-  <h1><%= current_page.title %></h1>
-  <p><time><%= current_page.date.strftime('%b %e %Y') %></time></p>
+  <%= partial :article_meta, locals: { article: current_page } %>
+  <%= article_title(current_page) %>
 
   <article>
     <%= yield %>
