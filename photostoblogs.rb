@@ -17,6 +17,7 @@ Dir.glob('source/photos/*/*.jpg').each do |photo_file|
   photo = Photo.new(Pathname.new(photo_file))
   dest_dir = FileUtils.mkdir_p(File.join(Dir.pwd, "source/photos/#{photo.year}/#{photo.slug}")).first
   dest_post = File.join(dest_dir, 'index.html.markdown.erb')
+  next if File.exist?(dest_post)
   thumb = File.join(dest_dir, "#{photo.slug}-thumb.jpg")
   dest_image = File.join(dest_dir, "#{photo.slug}.jpg")
   FileUtils.cp(photo_file, dest_image)
@@ -44,7 +45,7 @@ Dir.glob('source/photos/*/*.jpg').each do |photo_file|
   content << "date: #{date}\n"
   content << "photo: #{filename}\n"
   content << "thumb: #{thumb_path}\n"
-  content << "---\n"
+  content << "---"
 
   if File.exist?(dest_post)
     content << CONTENT_RE.match(File.read(dest_post))[1]
