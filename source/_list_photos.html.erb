@@ -1,9 +1,10 @@
+<% photo_url = current_page.path.include?('xml') ? article.data[:photo] : article.data[:thumb] %>
 <article>
   <%= partial :article_meta, locals: { article: article } %>
   <%= article_title(article) %>
   <p class="mb2">
     <% link_to article.url do %>
-      <%= image_tag article.data[:thumb], alt: article.title, class: 'mw-100' %>
+      <%= image_tag photo_url, alt: article.title, class: 'mw-100' %>
     <% end %>
   </p>
   </figure>
