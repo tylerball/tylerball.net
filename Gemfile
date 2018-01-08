@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'exif'
 gem "middleman"
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.8.1'
 gem 'redcarpet'
 gem 'rmagick'
 
