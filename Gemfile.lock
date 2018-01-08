@@ -96,8 +96,6 @@ GEM
       servolux
       tilt (~> 2.0)
       uglifier (~> 3.0)
-    middleman-webp (0.4.3)
-      middleman-core (~> 4.0)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     nokogiri (1.8.0)
@@ -139,10 +137,9 @@ DEPENDENCIES
   middleman
   middleman-blog!
   middleman-livereload!
-  middleman-webp
   nokogiri
   redcarpet
   rmagick
 
 BUNDLED WITH
-   1.15.1
+   1.16.0
