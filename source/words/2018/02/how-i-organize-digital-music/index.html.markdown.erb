@@ -1,0 +1,53 @@
+---
+title: how i organize my digital music
+description: It's complicated.
+published: true
+date: 2018-02-21
+---
+
+![Music for sale on USB thumb drives in Mexico](<%= blog_file('thumbs.jpg') %>)
+
+Streaming music is dominating our consumption of digital music and I can't stand it. Leaving my library in the hands of a startup that surely will not be around forever is unwise. I want the files, I want metadata, I want to know what I'm listening to. Is this album the Remastered version, Deluxe version, the Anniversary Edition or a remixed bootleg? With most services it's hard to tell if it's Explicit or Clean.
+
+The best ways to get mp3s these days are Bandcamp, download codes included with physical media or a thing that rhymes with "dole squeak", but what you do with these files once you have them is another story. Keeping a large collection of music on your computer isn't easy and my process has evolved over the years.
+
+READMORE
+
+## importing
+
+At the heart of my system is [beets][beets], an awesome command line music management tool written in Python that provides tons of useful processes for working with a large collection. When I run `beet import` on a folder of music files beets; [ensures the files aren't a duplicate](http://beets.readthedocs.io/en/v1.4.6/plugins/duplicates.html) of something already in my library; searches for matching metadata from [Discogs][discogs] and [MusicBrainz][musicbrainz], [grabs album art](http://beets.readthedocs.io/en/v1.4.6/plugins/fetchart.html) and applies them to the files; and copies the files into my iTunes Library.
+
+Keeping everything in here makes it easy to [query](http://beets.readthedocs.io/en/v1.4.6/reference/query.html) my music by genre, artist, BPM and compose it into playlists, copy files to other places, convert it between different formats and so on. Having your music on your hard drive allows you to decide how you want it to structured, not Apple or Spotify.
+
+## syncing
+
+More important than having quality files is ensuring they don't disappear. For this I keep my entire music library in a [git-annex][annex] repository, which allows you to use [git][git] to manage a large collection of files and sync them to multiple destinations, sort of like DropBox but more intentional. It gives you fine control over which files are on which machine, making syncing a huge collection of music across laptops and hard drives easy. I typically only have my most recently imported music on my laptop while my [NAS/server][freenas] at home keeps a copy of everything on [redundant storage][zfs], so it also serves as a backup.
+
+To help manage this I've written [a beets plugin][beets-annex] that helps me manage files in the repo from beets. For example I can run `beet get Animal Collective` and this plugin will pipe the those files to `git-annex` to download those albums from my server. I can also use beets' tagging system to tag items with `beet modify dj=true <query>`, clone the annex repo onto a thumb drive and use `beet get dj:true` to take DJ tracks with me.
+
+When I add new music to my collection with `beet import` I run the following to commit them to the repo and sync to my server.
+
+    git annex add .
+    git commit -m "add more music"
+    git annex sync && git annex copy --to server
+
+## listening
+
+I've experimented with [mpd](https://www.musicpd.org/) and a few GUI apps for listening but unfortunately iTunes is still the best of the worst. What I want is Winamp with the ability to play music from anywhere but nothing like that exists in 2018. iTunes has the most sane play queue management system and with [iTunes Match][match] I can listen to my music anywhere. 
+
+Match is the unsung hero of the Apple Music ecosystem, which allows you to throw arbitrary music files into iTunes and have them be available for streaming and download on any of your devices. The best way to listen to music is loud in a car, so I need my library everywhere.
+
+I see iTunes as a read-only consumer of my library, files go into it after `import` via [this beets plugin I wrote][itunescopy] and I don't care about what happens to them. The canonical version of the music is always in beets' library.
+
+That's pretty much it. It's complicated but it works for me. If you have questions about how something works, hit me up [on twitter](http://twitter.com/tylerball).
+
+[beets]:http://beets.io
+[discogs]:https://www.discogs.com
+[musicbrainz]:https://musicbrainz.org
+[annex]:https://git-annex.branchable.com
+[git]:https://git-scm.com
+[freenas]:http://www.freenas.org
+[zfs]:https://en.wikipedia.org/wiki/ZFS
+[beets-annex]:https://github.com/tylerball/dotfiles/blob/master/.config/beets/plugins/git_annex.py
+[itunescopy]:https://github.com/tylerball/dotfiles/blob/master/.config/beets/plugins/itunescopy.py
+[match]:https://support.apple.com/en-ca/HT204146
