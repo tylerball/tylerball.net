@@ -14,6 +14,19 @@ article {
     text-align: center;
     margin-top: 1rem;
   }
+
+  pre {
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, .05);
+  }
+
+  code {
+    font-size: 0.75rem;
+  }
+
+  p code {
+    background-color: rgba(0, 0, 0, .05);
+  }
 }
 
 .meta {

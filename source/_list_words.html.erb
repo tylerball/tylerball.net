@@ -2,4 +2,7 @@
   <%= partial :article_meta, locals: { article: article } %>
   <%= article_title(article) %>
   <%= article.summary %>
+  <% if article.body.size > article.summary.size %>
+    <%= link_to 'read more ->', article.url %>
+  <% end %>
 </article>
