@@ -1,7 +1,8 @@
 module BlogHelpers
   def article_title(article)
     unless current_page.path.include?('xml')
-      content_tag(:h2) do
+      tag = defined?(current_page.blog_data) ? :h1 : :h2
+      content_tag(tag) do
         link_to article.title.downcase, article.url
       end
     end
