@@ -11,4 +11,4 @@ I have completed my first album under my Support Group moniker, which you can li
   - [Apple Music](https://itunes.apple.com/us/album/living-water-assembly/1363547832?uo=4&app=music&at=1001lry3&ct=dashboard)
   - [Spotify](https://open.spotify.com/album/7svoT4qfVwDMxVZRK002EM)
 
-More to come. [supportgroup.band](https://supportgroup.band).
+More to come. [supportgroup.band](http://supportgroup.band).
