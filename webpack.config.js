@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const cssExtract = require("mini-css-extract-plugin");
 
 const outputPath = path.join(__dirname, '.tmp/dist');
 
@@ -13,10 +13,6 @@ module.exports = {
     ],
   },
 
-  resolve: {
-    root: __dirname + '/source/javascripts',
-  },
-
   output: {
     path: outputPath,
     filename: '[name].[hash].js',
@@ -24,7 +20,7 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /source\/javascripts\/.*\.js$/,
         exclude: /node_modules|\.tmp|vendor/,
@@ -38,15 +34,19 @@ module.exports = {
       },
       {
         test: /.*\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          "css!sass?sourceMap&includePaths[]=" + __dirname + "/node_modules"
-        )
+        use: [
+          cssExtract.loader,
+          'css-loader',
+          'sass-loader',
+        ]
       },
     ],
   },
 
   plugins: [
-    new ExtractTextPlugin("[name].[hash].css"),
+    new cssExtract({
+      filename: "[name].[hash].css"
+    }),
     new ManifestPlugin({
       fileName: 'manifest.json'
     }),
