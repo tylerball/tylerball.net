@@ -1,0 +1,7 @@
+FROM starefossen/ruby-node as middleman
+ADD . /usr/src/app
+WORKDIR /usr/src/app
+ENV YARN_PRODUCTION=false
+RUN yarn
+RUN npm rebuild node-sass
+RUN bundle install
