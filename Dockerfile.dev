@@ -5,3 +5,4 @@ ENV YARN_PRODUCTION=false
 RUN yarn
 RUN npm rebuild node-sass
 RUN bundle install
+# vim:ft=dockerfile
