@@ -8,5 +8,5 @@ RUN bundle install
 RUN bundle exec middleman build --verbose
 
 FROM nginx as nginx
-COPY --from=middleman /usr/src/app/build /usr/share/nginx/html
-COPY nginx/default /etc/nginx/sites-enabled/default
+COPY --from=middleman /usr/src/app/build /etc/nginx/html
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
