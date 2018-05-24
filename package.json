@@ -2,6 +2,7 @@
   "name": "tylerball.net",
   "version": "1.0.0",
   "description": "my webzone",
+  "license": "CC-BY-NC-SA-4.0",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
