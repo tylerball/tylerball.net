@@ -1,0 +1,10 @@
+<% content_for :page_classes, 'photo-album photo-grid' %>
+<div class="grid">
+  <% photos.sort_by { |a| a.slug }.each do |photo| %>
+    <figure class="ma0 mb3">
+      <% link_to photo.url do %>
+        <%= image_tag photo.data[:photo], alt: photo.title %>
+      <% end %>
+    </figure>
+  <% end %>
+</div>

@@ -37,12 +37,13 @@ activate :blog do |blog|
 end
 
 ignore 'photos/album.html'
+ignore 'photos/album_grid.html'
 
 ready do
   sitemap.resources.select { |resource| resource.is_a? Middleman::Blog::BlogArticle }
     .select { |a| a.data[:category] == 'photos' }
     .group_by { |a| a.date.year }.each do |year, photos|
-      proxy "/photos/#{year}.html", 'photos/album.html', locals: {
+      proxy "/photos/#{year}.html", 'photos/album_grid.html', locals: {
         photos: photos
       }
   end

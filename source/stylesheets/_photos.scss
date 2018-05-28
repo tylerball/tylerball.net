@@ -9,11 +9,12 @@ $max-container: calc(90vh - 6rem);
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
-
-    img {
-      max-height: calc(100% - 4rem);
-    }
   }
+}
+
+.photo-grid {
+  // never make a vertical photo bigger than the viewport... in columns
+  max-width: calc((100vh - 3rem) * 3 * 2);
 }
 
 .album-list {
@@ -63,6 +64,10 @@ $max-container: calc(90vh - 6rem);
   &:last-child {
     margin-right: 0;
   }
+
+  img {
+    max-height: calc(100% - 4rem);
+  }
 }
 
 .swiper-button-prev,
@@ -86,4 +91,13 @@ $max-container: calc(90vh - 6rem);
 
 .swiper-pagination-bullet-active {
   background: black;
+}
+
+.grid {
+  column-count: 2;
+  column-gap: px(1em);
+
+  @media (max-width: 60em) {
+    column-count: 1;
+  }
 }
