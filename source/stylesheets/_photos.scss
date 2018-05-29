@@ -14,7 +14,7 @@ $max-container: calc(90vh - 6rem);
 
 .photo-grid {
   // never make a vertical photo bigger than the viewport... in columns
-  max-width: calc((100vh - 3rem) * 3 * 2);
+  max-width: calc((100vh - 4em) * 3 / 4 * 2);
 }
 
 .album-list {
@@ -95,7 +95,7 @@ $max-container: calc(90vh - 6rem);
 
 .grid {
   column-count: 2;
-  column-gap: px(1em);
+  column-gap: 1em;
 
   @media (max-width: 60em) {
     column-count: 1;
