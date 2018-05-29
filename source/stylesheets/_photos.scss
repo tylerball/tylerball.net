@@ -19,6 +19,10 @@ $max-container: calc(90vh - 6rem);
   }
 }
 
+.photo--horizontal {
+  max-width: calc((100vh - 4em) * 4 / 3);
+}
+
 .photos_index {
   max-width: none;
 }

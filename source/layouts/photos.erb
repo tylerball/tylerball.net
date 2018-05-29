@@ -1,4 +1,6 @@
-<% content_for :page_classes, 'photo-post' %>
+<% classes = ['photo-post']
+  classes << "photo--#{current_page.data[:orientation]}" if current_page.data[:orientation]
+content_for :page_classes, classes.join(' ') %>
 <% wrap_layout :layout do %>
   <figure class="mh0">
     <%= image_tag current_page.data[:photo], alt: current_page.title %>
