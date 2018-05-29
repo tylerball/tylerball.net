@@ -5,16 +5,6 @@ require 'time'
 require 'rmagick'
 require './lib/photo'
 
-class Hash
-  def symbolize_keys
-    self.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
-  end
-
-  def stringify_keys
-    self.each_with_object({}){|(k,v), h| h[k.to_s] = v}
-  end
-end
-
 def template_path(file)
   root = Pathname.new(File.join(Dir.pwd, 'source'))
   file = Pathname.new(file)
@@ -70,7 +60,7 @@ Dir.glob('source/photos/*/*.jpg').each do |photo_file|
   else
     content << "---"
     content << YAML.dump(data)
-    content << "---\n"
+    content << "---"
   end
 
   puts "writing #{dest_post}"

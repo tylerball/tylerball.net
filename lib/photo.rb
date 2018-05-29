@@ -26,3 +26,13 @@ class Photo
     name.gsub(/\, [\d-]+$/, '')
   end
 end
+
+class Hash
+  def symbolize_keys
+    self.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+  end
+
+  def stringify_keys
+    self.each_with_object({}){|(k,v), h| h[k.to_s] = v}
+  end
+end
