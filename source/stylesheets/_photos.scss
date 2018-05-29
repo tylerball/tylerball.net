@@ -2,19 +2,25 @@
 
 $max-container: calc(90vh - 6rem);
 
-.photo-album {
-  max-width: none;
+.photos {
+  max-width: calc((100vh - 4em) * 3 / 4);
+  margin: 0 auto;
 
   main {
-    margin: 0 auto;
     width: 100%;
     max-width: 100%;
   }
 }
 
-.photo-grid {
+.photos--grid {
   // never make a vertical photo bigger than the viewport... in columns
-  max-width: calc((100vh - 4em) * 3 / 4 * 2);
+  @media (min-width: map-get($points, small) + 1) {
+    max-width: calc((100vh - 4em) * 3 / 4 * 2);
+  }
+}
+
+.photos_index {
+  max-width: none;
 }
 
 .album-list {
@@ -26,7 +32,6 @@ $max-container: calc(90vh - 6rem);
 .album {
   margin-bottom: 1em;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
 
@@ -97,7 +102,7 @@ $max-container: calc(90vh - 6rem);
   column-count: 2;
   column-gap: 1em;
 
-  @media (max-width: 60em) {
+  @include breakpoint(small) {
     column-count: 1;
   }
 }
