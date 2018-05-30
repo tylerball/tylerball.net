@@ -1,8 +1,16 @@
-FROM starefossen/ruby-node as middleman
-ADD . /usr/src/app
-WORKDIR /usr/src/app
-ENV YARN_PRODUCTION=false
+FROM starefossen/ruby-node
+
+COPY Gemfile* /tmp/
+WORKDIR /tmp
+RUN bundle install
+
+ADD package.json yarn.lock /tmp/
 RUN yarn
-RUN npm rebuild node-sass
+RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app/
+
+WORKDIR /usr/src/app
+ADD . /usr/src/app
+
+ENV YARN_PRODUCTION=false
 RUN bundle install
 # vim:ft=dockerfile
