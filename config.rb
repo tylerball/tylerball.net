@@ -8,7 +8,7 @@ Time.zone = "America/New_York"
 set :markdown_engine, :redcarpet
 set :markdown, smartypants: true
 
-activate :livereload
+activate :livereload, host: '0.0.0.0'
 
 activate :external_pipeline,
   name: :webpack,
