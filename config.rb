@@ -44,7 +44,8 @@ ready do
     .select { |a| a.data[:category] == 'photos' }
     .group_by { |a| a.date.year }.each do |year, photos|
       proxy "/photos/#{year}.html", 'photos/album_grid.html', locals: {
-        photos: photos
+        photos: photos,
+        year: year,
       }
   end
 end

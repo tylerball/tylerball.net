@@ -1,7 +1,22 @@
-<h2>photos</h2>
+<h2>essays</h2>
 
 <div class="album-list">
-  <% articles.group_by { |a| a.date.year }.each do |year, articles| %>
+  <% articles.select { |p| p.data[:essay] }.each do |article| %>
+    <div class="album">
+      <% link_to article.path, class: 'h5 dt cover', style: "background-image: url(#{article.data[:thumb]});" do %>
+        <div class="dtc v-mid white ph4">
+          <h3><%= article.title %></h3>
+          <p><%= article.date.strftime('%b %e %Y') %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<h2>photos by year</h2>
+
+<div class="album-list">
+  <% articles.select { |p| !p.data[:essay] }.group_by { |a| a.date.year }.each do |year, articles| %>
     <div class="album">
       <% link_to category_path('photos') + year.to_s do %>
         <%= image_tag articles.first.data[:thumb],

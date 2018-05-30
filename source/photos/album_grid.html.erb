@@ -1,6 +1,6 @@
 <% content_for :page_classes, 'photo-album photos--grid' %>
 <div class="grid">
-  <% photos.sort_by { |a| a.slug }.each do |photo| %>
+  <% photos.sort_by { |a| a.slug }.select { |p| !p.data.essay }.each do |photo| %>
     <figure class="ma0 mb3">
       <% link_to photo.url do %>
         <%= image_tag photo.data[:photo], alt: photo.title %>
@@ -8,3 +8,7 @@
     </figure>
   <% end %>
 </div>
+
+<p class="mt5 f6 tc">
+  <%= link_to "#{year} archive", blog_year_path(year) %>
+</p>

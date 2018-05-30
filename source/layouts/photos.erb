@@ -1,11 +1,14 @@
 <% classes = ['photo-post']
   classes << "photo--#{current_page.data[:orientation]}" if current_page.data[:orientation]
+  classes << "photo--essay" if current_page.data[:essay]
 content_for :page_classes, classes.join(' ') %>
 <% wrap_layout :layout do %>
-  <figure class="mh0">
-    <%= image_tag current_page.data[:photo], alt: current_page.title %>
-    <figcaption class="mv2"><%= current_page.title %></figcaption>
-  </figure>
+  <% unless current_page.data[:essay] %>
+    <figure class="mh0">
+      <%= image_tag current_page.data[:photo], alt: current_page.title %>
+      <figcaption class="mv2"><%= current_page.title %></figcaption>
+    </figure>
+  <% end %>
 
   <article>
     <%= yield %>
