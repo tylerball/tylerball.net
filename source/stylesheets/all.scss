@@ -2,6 +2,7 @@ $footer-height: 7em;
 $color-link: #ff5e08;
 
 @import '~tachyons-sass/tachyons';
+@import '~basiclightbox/src/styles/main';
 @import 'mixins';
 @import 'global';
 @import 'articles';

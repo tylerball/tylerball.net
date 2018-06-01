@@ -27,6 +27,7 @@
     "plugins": []
   },
   "dependencies": {
+    "basiclightbox": "^4.0.3",
     "swiper": "3.4.0",
     "tachyons-sass": "^4.9.2"
   }
