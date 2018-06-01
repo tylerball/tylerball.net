@@ -25,6 +25,12 @@ $max-container: calc(90vh - 6rem);
 
 .photo--essay {
   max-width: none;
+
+  main {
+    max-width: none;
+    margin-left: -5vh;
+    width: calc(100% + 10vh);
+  }
 }
 
 .photos_index {

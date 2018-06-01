@@ -2,7 +2,7 @@
 
 <div class="album-list">
   <% articles.select { |p| p.data[:essay] }.each do |article| %>
-    <div class="album">
+    <div class="album w-100">
       <% link_to article.path, class: 'h5 dt cover', style: "background-image: url(#{article.data[:thumb]});" do %>
         <div class="dtc v-mid white ph4">
           <h3><%= article.title %></h3>
