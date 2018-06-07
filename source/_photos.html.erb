@@ -1,9 +1,9 @@
-<h2>essays and trips</h2>
+<h2 class="ph3-ns">essays and trips</h2>
 
-<div class="album-list">
+<div class="flex flex-wrap">
   <% articles.select { |p| p.data[:essay] }.each do |article| %>
-    <div class="album w-100">
-      <% link_to article.path, class: 'h5 dt cover', style: "background-image: url(#{article.data[:thumb]});" do %>
+    <div class="w-100 pb3 w-50-m w-third-l pa3-ns">
+      <% link_to article.path, class: 'w-100 h5 dt cover', style: "background-image: url(#{article.data[:thumb]});" do %>
         <div class="dtc v-mid white ph4">
           <h3><%= article.title %></h3>
           <p><%= article.date.strftime('%b %e %Y') %></p>
@@ -13,11 +13,11 @@
   <% end %>
 </div>
 
-<h2>photos by year</h2>
+<h2 class="ph3-ns">photos by year</h2>
 
-<div class="album-list">
+<div class="flex flex-wrap">
   <% articles.select { |p| !p.data[:essay] }.group_by { |a| a.date.year }.each do |year, articles| %>
-    <div class="album">
+    <div class="flex flex-column mb3-s w-third-ns pa3-ns">
       <% link_to category_path('photos') + year.to_s do %>
         <%= image_tag articles.first.data[:thumb],
           alt: "photos from #{year}"

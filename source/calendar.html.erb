@@ -2,7 +2,7 @@
   <h2>
     <%= year %>
   </h2>
-  <div class="album-list">
+  <div class="flex flex-wrap">
     <% articles.each do |article| %>
       <%= partial "list_#{article.data[:category]}", locals: { article: article } %>
     <% end %>
