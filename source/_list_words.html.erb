@@ -1,12 +1,13 @@
 <article class="lh-copy mv4">
   <%= partial :article_meta, locals: { article: article } %>
   <%= article_title(article) %>
-  <% if article.data.short %>
-    <%= article.body %>
-  <% else %>
+  <% rendered = article.render layout: false, keep_separator: true %>
+  <% if rendered.include? 'READMORE' %>
     <%= article.summary %>
     <% if article.body.size > article.summary.size %>
       <%= link_to 'read more ->', article.url %>
     <% end %>
+  <% else %>
+    <%= article.body %>
   <% end %>
 </article>

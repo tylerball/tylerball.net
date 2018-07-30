@@ -2,7 +2,6 @@
 title: human resource
 published: true
 date: 2018-07-25
-short: true
 ---
 
 What if we hired a small child by the hour to kick everyone in the shins? They'd
