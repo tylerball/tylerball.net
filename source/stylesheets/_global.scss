@@ -32,3 +32,15 @@ a {
 section {
   margin-bottom: 2em;
 }
+
+hr {
+  border: 0;
+  color: black;
+
+  &:after {
+    content: '+';
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
