@@ -1,16 +1,12 @@
 FROM starefossen/ruby-node
 
-COPY Gemfile* /tmp/
+COPY package.json yarn.lock Gemfile* /tmp/
 WORKDIR /tmp
+RUN yarn
 RUN bundle install
 
-ADD package.json yarn.lock /tmp/
-RUN yarn
-RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app/
-
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ADD . /usr/src/app
-
-ENV YARN_PRODUCTION=false
-RUN bundle install
+RUN cp -a /tmp/node_modules /usr/src/app/
 # vim:ft=dockerfile

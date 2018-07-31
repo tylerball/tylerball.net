@@ -1,12 +1,16 @@
 FROM starefossen/ruby-node as middleman
-ADD . /usr/src/app
-WORKDIR /usr/src/app
-ENV YARN_PRODUCTION=false
+
+COPY package.json yarn.lock Gemfile* /tmp/
+WORKDIR /tmp
 RUN yarn
-RUN npm rebuild node-sass
 RUN bundle install
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+ADD . /usr/src/app
+RUN cp -a /tmp/node_modules /usr/src/app/
 RUN bundle exec middleman build --verbose
 
-FROM nginx as nginx
+FROM nginx
 COPY --from=middleman /usr/src/app/build /etc/nginx/html
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
