@@ -1,4 +1,4 @@
-<% photo_url = current_page.path.include?('xml') ? article.data[:photo] : article.data[:thumb] %>
+<% photo_url = current_page.path.include?('xml') || article.data[:orientation] == 'vertical' ? article.data[:photo] : article.data[:thumb] %>
 <article>
   <%= partial :article_meta, locals: { article: article } %>
   <%= article_title(article) %>
