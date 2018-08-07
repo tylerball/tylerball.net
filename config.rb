@@ -5,8 +5,8 @@ helpers AssetHelper
 
 Time.zone = "America/New_York"
 
+set :markdown, smartypants: true, footnotes: true
 set :markdown_engine, :redcarpet
-set :markdown, smartypants: true
 
 activate :livereload, host: '0.0.0.0'
 
