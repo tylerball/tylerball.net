@@ -1,4 +1,5 @@
 require 'date'
+require 'fileutils'
 require 'active_support/inflector'
 
 task :new_article do
@@ -6,7 +7,7 @@ task :new_article do
   input = STDIN.gets.strip
   date = Date.today.strftime('%Y-%m-%d')
   dir = "source/words/#{Date.today.strftime('%Y/%m')}/#{input.parameterize}"
-  Dir.mkdir(dir)
+  FileUtils.mkdir_p(dir)
   content = "---\n"
   content << "title: #{input}\n"
   content << "published: false\n"
