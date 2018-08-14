@@ -6,17 +6,5 @@
     <%= yield %>
   </article>
 
-  <nav class="article-nav mv4">
-    <div class="w-50 fl mb4">
-      <% if current_page.article_previous %>
-        <%= link_to "<- older: #{current_page.article_previous.title}", current_page.article_previous.url %>
-      <% end %>
-    </div>
-
-    <div class="w-50 fl tr mb4">
-      <% if current_page.article_next %>
-        <%= link_to "newer: #{current_page.article_next.title} ->", current_page.article_next.url %>
-      <% end %>
-    </div>
-  </nav>
+  <%= partial :pagination %>
 <% end %>
