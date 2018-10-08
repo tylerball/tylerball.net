@@ -10,9 +10,14 @@ article {
     margin-top: 2rem;
   }
 
+  figure {
+    margin: 0;
+  }
+
   figcaption {
     text-align: center;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
   }
 
   pre {
