@@ -2,7 +2,7 @@
   <%= partial :article_meta, locals: { article: article } %>
   <%= article_title(article) %>
   <% rendered = article.render layout: false, keep_separator: true %>
-  <% if rendered.include? 'READMORE' %>
+  <% if rendered.include?('READMORE') && current_page.url != '/' %>
     <%= article.summary %>
     <% if article.body.size > article.summary.size %>
       <%= link_to 'read more ->', article.url %>
