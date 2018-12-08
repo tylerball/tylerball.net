@@ -36,6 +36,7 @@ activate :blog do |blog|
   blog.year_template = 'calendar.html'
 end
 
+page 'photos/ongoing/*', layout: :ongoing
 ignore 'photos/album.html'
 ignore 'photos/album_grid.html'
 
