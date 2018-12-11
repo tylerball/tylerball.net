@@ -28,9 +28,7 @@ referencing a Bitcoin inside joke. That man is wearing a set of shoulder
 holsters—like for pistols—but they have an iPhone and a Moleskine in each.
 
 Later, a message in the conversation pit[^1] tells us that the alarm
-was triggered by an adjoining building full of art students. Maybe impostors of
-yet a different kind, but they are the only people that can disrupt the
-disruption.
+was triggered by an adjoining building full of art students.
 
 [^1]: rhymes with 'black'
 
