@@ -1,7 +1,9 @@
 <h2 class="ph3-ns">trips and projects</h2>
 
 <div class="flex flex-wrap">
-  <% sitemap.resources.select { |p| p.data[:essay] }.each do |article| %>
+  <% essays = sitemap.resources.select { |p| p.data[:essay] && p.path.index('/ongoing') }
+     essays += sitemap.resources.select { |p| p.data[:essay] && !p.path.index('/ongoing') }
+  essays.each do |article| %>
     <div class="w-100 pb3 w-50-m w-third-l pa3-ns">
       <% link_to article.path, class: 'w-100 h5 dt cover', style: "background-image: url(#{article.data[:thumb]});" do %>
         <div class="dtc v-mid white ph4">
