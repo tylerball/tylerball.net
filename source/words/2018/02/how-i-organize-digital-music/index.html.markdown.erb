@@ -21,15 +21,7 @@ Keeping everything in here makes it easy to [query](http://beets.readthedocs.io/
 
 ## syncing
 
-More important than having quality files is ensuring they don't disappear. For this I keep my entire music library in a [git-annex][annex] repository, which allows you to use [git][git] to manage a large collection of files and sync them to multiple destinations, sort of like DropBox but more intentional. It gives you fine control over which files are on which machine, making syncing a huge collection of music across laptops and hard drives easy. I typically only have my most recently imported music on my laptop while my [NAS/server][freenas] at home keeps a copy of everything on [redundant storage][zfs], so it also serves as a backup.
-
-To help manage this I've written [a beets plugin][beets-annex] that helps me manage files in the repo from beets. For example I can run `beet get Animal Collective` and this plugin will pipe the those files to `git-annex` to download those albums from my server. I can also use beets' tagging system to tag items with `beet modify dj=true <query>`, clone the annex repo onto a thumb drive and use `beet get dj:true` to take DJ tracks with me.
-
-When I add new music to my collection with `beet import` I run the following to commit them to the repo and sync to my server.
-
-    git annex add .
-    git commit -m "add more music"
-    git annex sync && git annex copy --to server
+More important than having quality files is ensuring they don't disappear. ~~For this I keep my entire music library in a [git-annex][annex] repository, which allows you to use [git][git] to manage a large collection of files and sync them to multiple destinations, sort of like DropBox but more intentional. It gives you fine control over which files are on which machine, making syncing a huge collection of music across laptops and hard drives easy.~~ \[**Update 2019:** I have since switched from git-annex to [syncthing][syncthing] for ease of use.\] I typically only have my most recently imported music on my laptop while my [NAS/server][freenas] at home keeps a copy of everything on [redundant storage][zfs], so it also serves as a backup.
 
 ## listening
 
@@ -51,3 +43,4 @@ That's pretty much it. It's complicated but it works for me. If you have questio
 [beets-annex]:https://github.com/tylerball/dotfiles/blob/master/.config/beets/plugins/git_annex.py
 [itunescopy]:https://github.com/tylerball/dotfiles/blob/master/.config/beets/plugins/itunescopy.py
 [match]:https://support.apple.com/en-ca/HT204146
+[syncthing]:https://syncthing.net
