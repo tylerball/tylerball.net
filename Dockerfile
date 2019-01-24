@@ -2,13 +2,11 @@ FROM starefossen/ruby-node as middleman
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-ADD . /usr/src/app
-COPY package.json yarn.lock Gemfile* /tmp/
-WORKDIR /tmp
+COPY package.json yarn.lock Gemfile* /usr/src/app/
 RUN yarn &&\
   bundle install
 
-RUN cp -a /tmp/node_modules /usr/src/app/
+ADD . /usr/src/app
 RUN bundle exec middleman build --verbose
 
 FROM nginx

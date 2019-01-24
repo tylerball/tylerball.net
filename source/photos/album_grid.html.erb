@@ -1,12 +1,13 @@
 <% content_for :page_classes, 'photo-album photos--grid' %>
 <div class="grid">
-  <% photos_by_year(year).sort_by { |a| a.slug }.each do |photo| %>
+  <% photos = photos_by_year(year)
+    photos.sort_by { |a| a.slug }.each do |photo| %>
     <figure class="ma0 mb3">
       <% link_to photo.url do %>
         <%= image_tag photo.data[:photo], alt: photo.title %>
       <% end %>
     </figure>
-  <% end %>
+  <% end if photos %>
 </div>
 
 <p class="mt5 f6 tc">
