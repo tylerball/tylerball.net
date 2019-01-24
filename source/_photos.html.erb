@@ -22,7 +22,7 @@
 <h2 class="ph3-ns">photos by year</h2>
 
 <div class="flex flex-wrap">
-  <% articles.select { |p| !p.data[:essay] }.group_by { |a| a.date.year }.each do |year, articles| %>
+  <% photos_grouped_by_year.each do |year, articles| %>
     <div class="flex flex-column mb3-s w-third-ns pa3-ns">
       <% link_to category_path('photos') + year.to_s do %>
         <%= image_tag articles.first.data[:thumb],

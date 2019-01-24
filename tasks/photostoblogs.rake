@@ -27,7 +27,7 @@ task :photostoblogs do
       dest_image = File.join(dest_dir, "#{photo.slug}.jpg")
       FileUtils.cp(photo_file, dest_image)
 
-    exif = Exif::Data.new(photo_file)
+      exif = Exif::Data.new(photo_file)
       date = if exif.date_time_original
         DateTime.parse(exif.date_time_original.to_s).strftime('%F')
       else
@@ -45,7 +45,8 @@ task :photostoblogs do
     data = {
       title: photo.name,
       published: true,
-      date: date,
+      date: Date.today.strftime('%F'),
+      original_date: date,
       photo: filename,
       thumb: thumb_path,
       orientation: orientation,
@@ -55,7 +56,9 @@ task :photostoblogs do
     if File.exist?(dest_post)
       existing_content = File.read(dest_post)
       existing_data = YAML.load(CONTENT_RE.match(existing_content)[1]).symbolize_keys
-      content << YAML.dump(data.merge!(existing_data).stringify_keys)
+      content << YAML.dump(
+        data.merge!(original_date: existing_data[:date]).merge!(existing_data).transform_keys(&:to_s)
+      )
       content << "---"
       content << CONTENT_RE.match(existing_content)[2]
     else
