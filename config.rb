@@ -10,6 +10,8 @@ set :markdown_engine, :redcarpet
 
 activate :livereload, host: '0.0.0.0'
 
+activate :githubembed
+
 activate :external_pipeline,
   name: :webpack,
   command: build? ?
