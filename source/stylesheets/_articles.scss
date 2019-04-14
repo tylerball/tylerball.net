@@ -33,6 +33,7 @@ article {
   p code {
     background-color: rgba(0, 0, 0, .05);
   }
+
 }
 
 .meta {
@@ -58,4 +59,5 @@ article {
 
 .footnotes {
   @extend .f6;
+	@extend .mt4;
 }
