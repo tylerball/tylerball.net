@@ -1,0 +1,119 @@
+---
+title: building a better Sonos with free software and cheap hardware
+published: true
+date: 2019-06-26
+---
+
+When I first heard about Sonos I was impressed. Completely synchronized music
+playing in every room is something I've always wanted, but the price seemed
+ridiculous, especially if you like the speakers you already own. Most of their
+products have a speaker integrated into them, forcing you to ditch any Hi-Fi
+equipment you might already own. Also [I like keeping my own library of digital
+music][library] and Sonos steers users towards using streaming
+services.[^1]
+
+For a while I was convinced there wasn't a good open-source solution that could
+rival Sonos, but then I started playing with [`forked-daapd`][daapd]. It's like
+iTunes but better. It scans your music library and allows you to
+stream it to Airplay receivers around the house. It also accepts audio via
+[pipe][pipe] so you can hook it up to receive audio from other sources and
+send it to your speakers.
+
+For receivers, [Volumio][volumio] is a great OS that you can install on a
+Raspberry Pi. It has Airplay reception built in, with plugins for Spotify and
+other services. This combined with hardware from [HiFiBerry][berry] gets you a
+high-quality output in the format of your choice for under $100.
+
+For example I bought some
+cheap but awesome [Edifier speakers][edifier] for our home office and these are
+connected via an optical cable to a [HiFiBerry
+Digi+][digiplus] on a Raspberry Pi 3.
+
+In the living room I have an older Onkyo TR-NX414 receiver that receives audio from
+via the optical out on a [Behringer UCA202][behringer] connected to an [Intel
+NUC][nuc]. Eventually I'll upgrade the receiver to something that has Airplay
+built in, but the point is that with DIY-ing this yourself you have the
+flexibility to use whatever hardware you have. My dad's old beat-up but
+otherwise great-sounding Bose 301s still find use in the garage with this system.
+
+### intalling forked-daapd
+
+My server is an old PC running Ubuntu which runs everything to do with home automation
+and home audio with Docker. My full config for this machine is [kept here][home]. The
+relevant piece is the `daapd` directory:
+
+	daapd
+	├── Dockerfile
+	├── forked-daapd.conf
+	└── start.sh
+
+I couldn't find a good pre-built Docker image for forked-daapd but writing my
+own was pretty simple. To set this up copy the `daapd` directory and add a `docker-compose.yml` with the following:
+
+<%= embed_github 'tylerball/home/blob/092b5ab8355d479022cc0e4c301b2c30cb2c8cf9/docker-compose.yml#L97-L109' %>
+
+Be sure to adjust the `/mnt/pool/tunes` volume to where your music is stored. You can reference the [forked-daapd.conf][conf] in the project repo for its available options and their defaults.
+
+### streaming spotify around the house
+
+Despite [what I think about streaming music][library] sometimes you just want to throw Spotify on and have it play through the whole house during a party or when you can't be bothered to queue up a bunch of music manually. Thankfully there's the [librespot][librespot][^2] open source client which you can pipe right into forked-daapd. One thing that isn't built in is metadata, which is just a nice thing to have instead of blank album art and empty current track info. A [PR][pr] was opened but wasn't accepted for some reason, so I keep a [fork of librespot][fork] with this feature added.
+
+Like forked-daapd, copy the contents of the `librespot` folder and add the following to your `docker-compose.yml`:
+
+<%= embed_github 'tylerball/home/blob/092b5ab8355d479022cc0e4c301b2c30cb2c8cf9/docker-compose.yml#L71-L81' %>
+
+Again, update `/mnt/pool/tunes` to point to your music. You will also need to create a `librespot.env` file with your Spotify username, password and a name for the streaming destination.
+
+	SPOTIFY_NAME=Home
+	SPOTIFY_USER=myusername
+	SPOTIFY_PASSWORD=mypassword
+
+<div class="flex-ns justify-between mv3">
+<aside>Now "Home" shows up in your Spotify streaming destinations.</aside>
+<img class="ml3-ns mt3 mt0-ns" alt="'Home' as a destination in the Spotify app" src="<%= blog_file('spotify.png') %>" />
+</div>
+
+### streaming other audio from macs and phones
+
+Sometimes you need audio from places that aren't your library or Spotify, like playing from the Bandcamp app, website or from YouTube. Luckily there's also an open-source Airplay receiver called [shairport-sync][shairport][^3] we can pipe into forked-daapd.
+
+The setup for shairport-sync is a lot simpler, just add the following to your `docker-compose.yml`:
+
+<%= embed_github 'tylerball/home/blob/092b5ab8355d479022cc0e4c301b2c30cb2c8cf9/docker-compose.yml#L83-L95' %>
+
+<div class="flex-ns justify-between mv3">
+<aside>Now you can see "Home" as an Output Device on your mac. Because I'm using Volumio boxes for "bedroom" and "office", those show up as additional destinations without any special configuration.</aside>
+<img class="ml3-ns mt3 mt0-ns" alt="'Home' as an Airplay Output Device on Mac OS" src="<%= blog_file('airplay.png') %>" />
+</div>
+
+### running it
+
+Start Docker with `sudo docker-compose up -d` and enjoy your more-capable, cheap, whole-home audio system.
+
+I learned alot about running all this stuff from [Benoit Beauchamp's
+excellent post][benoit] about setting up his own whole-home music setup, which differs a bit with the use of mopidy as a music manager, but everything else is the same. [This video](https://www.youtube.com/watch?v=lKcSotDC5hI) by James Petersen gave me some cool ideas about how to control the system from Home Assistant.
+
+[^1]: You can [add local music via an app running on a computer, but it's limited to 65,000
+  tracks](https://support.sonos.com/s/article/257?language=en_US). Amateur
+  hour.
+
+[^2]: This is also the software the Volumio devices use for Spotify streaming under the hood
+
+[^3]: This is also the software the Volumio devices use for Airplay reception under the hood. Everything works together.
+
+[daapd]:https://github.com/ejurgensen/forked-daapd
+[library]:/words/2018/02/02-how-i-organize-digital-music/
+[pipe]:https://en.wikipedia.org/wiki/Pipeline_(Unix)
+[volumio]:https://volumio.org
+[berry]:https://www.hifiberry.co
+[edifier]:https://www.amazon.ca/gp/product/B0719C132V/
+[nuc]:https://en.wikipedia.org/wiki/Next_Unit_of_Computing
+[behringer]:https://www.amazon.ca/gp/product/B000KW2YEI/
+[home]:https://github.com/tylerball/home
+[digiplus]:https://www.hifiberry.com/products/digiplus/
+[benoit]:http://recycledspace.com/2018/04/my-music-setup-at-home-with-mopidy-forked-daapd-and-shairport-sync.html
+[conf]:https://github.com/ejurgensen/forked-daapd/blob/master/forked-daapd.conf.in
+[librespot]:https://github.com/librespot-org/librespot
+[pr]:https://github.com/librespot-org/librespot/pull/214
+[fork]:https://github.com/tylerball/librespot
+[shairport]:https://github.com/mikebrady/shairport-sync
