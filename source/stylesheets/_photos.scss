@@ -31,6 +31,10 @@ $max-container: calc(90vh - 6rem);
     margin-left: -5vh;
     width: calc(100% + 10vh);
   }
+
+  img {
+    line-height: 1;
+  }
 }
 
 .photos_index {
@@ -99,4 +103,8 @@ $max-container: calc(90vh - 6rem);
   @media (min-width: map-get($points, small)) {
     cursor: pointer;
   }
+}
+
+.basicLightbox--visible img {
+  max-height: calc(100vh - 6rem);
 }

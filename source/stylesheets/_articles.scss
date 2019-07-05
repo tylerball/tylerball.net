@@ -61,3 +61,63 @@ article {
   @extend .f6;
 	@extend .mt4;
 }
+
+.cc2-ns {
+  @media #{$breakpoint-not-small} {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.cc2-m {
+  @media #{$breakpoint-medium} {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.cc2-l {
+  @media #{$breakpoint-large} {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.cc3-ns {
+  @media #{$breakpoint-not-small} {
+    -webkit-column-count: 3;
+       -moz-column-count: 3;
+            column-count: 3;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.cc3-l {
+  @media #{$breakpoint-large} {
+    -webkit-column-count: 3;
+       -moz-column-count: 3;
+            column-count: 3;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+}
