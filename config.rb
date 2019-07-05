@@ -5,7 +5,11 @@ helpers AssetHelper
 
 Time.zone = "America/New_York"
 
-set :markdown, smartypants: true, footnotes: true, strikethrough: true
+set :markdown,
+  smartypants: true,
+  footnotes: true,
+  strikethrough: true,
+  fenced_code_blocks: true
 set :markdown_engine, :redcarpet
 
 activate :livereload, host: '0.0.0.0'
