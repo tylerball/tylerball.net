@@ -44,7 +44,7 @@ task :photostoblogs do
 
     data = {
       title: photo.name,
-      published: true,
+      published: false,
       date: Date.today.strftime('%F'),
       original_date: date,
       photo: filename,
