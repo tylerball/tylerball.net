@@ -15,7 +15,7 @@ class GithubEmbed < ::Middleman::Extension
     output = <<~OUTPUT
       <div class="relative">
         <a class="absolute top-1 right-1 f6" href="https://github.com/#{blob(path)}">#{File.basename(path)} ↗︎</a>
-        <pre class="pa3 overflow-x-scroll"><code>#{content}</code></pre>
+        <pre class="pa3 pt4 pt3-ns overflow-x-scroll"><code>#{content}</code></pre>
       </div>
     OUTPUT
   end
@@ -64,10 +64,6 @@ class GithubEmbed < ::Middleman::Extension
   def tmpdir
     @tmpdir ||= Dir.mktmpdir
   end
-
-  # A Sitemap Manipulator
-  # def manipulate_resource_list(resources)
-  # end
 end
 
 Middleman::Extensions.register :githubembed do
