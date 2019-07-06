@@ -21,9 +21,9 @@ adjustments I had done in Lightroom. I also
 couldn't find a way to filter my photos in Lightroom for the images that lacked a
 corresponding `.jpg` file and convert them that way.
 
-Enter [`raw2jpg`][raw2jpg], a script I wrote for bulk converting raw files that is
+Enter [`raw2jpg`][raw2jpg], a script (Mac only) I wrote for bulk converting raw files that is
 `RAW+JPEG` aware and applies adjustments made to the image in Lightroom or
-Photoshop. To install it run:
+Photoshop. To use it, install [Homebrew](https://brew.sh) and run:
 
 ```
 brew cask install adobe-dng-converter
