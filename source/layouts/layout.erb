@@ -5,12 +5,18 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><%= current_page.data.title ? "#{current_page.data.title} - tylerball.net" : "tylerball.net" %></title>
+    <% title = current_page.data.title ? "#{current_page.data.title} - tylerball.net" : "tylerball.net" %>
+    <title><%= title %></title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
 
     <link href='http://fonts.googleapis.com/css?family=Lato|PT+Mono' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag webpack_asset_path 'site.css' %>
     <%= feed_tag :atom, "/feed.xml", title: "Atom Feed" %>
+
+    <meta property="og:url" content="https://tylerball.net<%= current_page.url %>" />
+    <meta property="og:title" content="<%= title %>" />
+    <%= yield_content :og_extra %>
+    <%= yield_content :og_image %>
   </head>
 
   <body class="sans-serif <%= page_classes %> <%= yield_content :page_classes %>"<%= yield_content :body_attrs %>>

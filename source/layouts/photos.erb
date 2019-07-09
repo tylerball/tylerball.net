@@ -2,6 +2,13 @@
   classes << "photo--#{current_page.data[:orientation]}" if current_page.data[:orientation]
   classes << "photo--essay" if current_page.data[:essay]
 content_for :page_classes, classes.join(' ') %>
+<% content_for :og_image do %>
+  <% if current_page.data[:thumb] %>
+    <meta property="og:image" content="https://tylerball.net<%= current_page.data[:thumb] %>" />
+  <% else %>
+    <meta property="og:image" content="https://tylerball.net/<%= current_page.data[:photo] %>" />
+  <% end %>
+<% end %>
 <% wrap_layout :layout do %>
   <% unless current_page.data[:essay] || locals[:essay] %>
     <figure class="mh0">
