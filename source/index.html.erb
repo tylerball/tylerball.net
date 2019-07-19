@@ -2,22 +2,56 @@
 pageable: true
 per_page: 10
 ---
-<section>
-  <% page_articles.each do |article| %>
-    <%= partial "list_#{article.data[:category]}", locals: { article: article } %>
-  <% end %>
-</section>
+<%
+  archive = current_page.path.include?('page/')
+  photos = blog.articles.select { |a| a.data.category == 'photos' }
+  others = blog.articles.reject { |a| photos.include?(a) }
+%>
 
-<% if next_page %>
-  <p class="tc">
-    <%= link_to 'older stuff', next_page %>
-  </p>
+<% if archive %>
+  <section>
+    <% page_articles.each do |article| %>
+      <%= partial "list_#{article.data[:category]}", locals: { article: article } %>
+    <% end %>
+  </section>
+  <div>
+    <% if next_page %>
+      <p class="tc">
+        <%= link_to 'older stuff', next_page %>
+      </p>
+    <% end %>
+    <% if prev_page %>
+      <p class="tc">
+        <%= link_to 'newer stuff', prev_page %>
+      </p>
+    <% end %>
+  </div>
+<% else %>
+  <% content_for :page_classes, 'mw9-ns' %>
+  <section class="dn db-ns">
+    <div class="flex-ns justify-between">
+      <div class="w-40-ns">
+        <% photos[0..9].each do |article| %>
+          <%= partial "list_#{article.data[:category]}", locals: { article: article } %>
+        <% end %>
+      </div>
+      <div class="w-50-ns">
+        <% others[0..4].each do |article| %>
+          <%= partial "list_#{article.data[:category]}", locals: { article: article } %>
+        <% end %>
+      </div>
+    </div>
+    <p class="tc">
+      <%= link_to 'older stuff', next_page %>
+    </p>
+  </section>
+  <section class="dn-ns">
+    <% photos[0..9].zip(others[0..4]).flatten.compact.each do |article| %>
+      <%= partial "list_#{article.data[:category]}", locals: { article: article } %>
+    <% end %>
+  </section>
 <% end %>
-<% if prev_page %>
-  <p class="tc">
-    <%= link_to 'newer stuff', prev_page %>
-  </p>
-<% end %>
+
 <p class="tc">
   <%= link_to 'visit the archive', :archive %>
 </p>

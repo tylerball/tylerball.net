@@ -1,4 +1,25 @@
 ---
-paginate: true
+pageable: true
+per_page: 10
 ---
-<%= partial category, locals: { articles: articles } %>
+<% if category == 'photos' %>
+  <%= partial :photos %>
+<% else %>
+  <% page_articles.each do |article| %>
+      <%= partial "list_#{category}", locals: { article: article } %>
+    <% end %>
+<% end %>
+
+<% if next_page %>
+  <p class="tc">
+    <%= link_to 'older stuff', next_page %>
+  </p>
+<% end %>
+<% if prev_page %>
+  <p class="tc">
+    <%= link_to 'newer stuff', prev_page %>
+  </p>
+<% end %>
+<p class="tc">
+  <%= link_to 'visit the archive', :archive %>
+</p>
