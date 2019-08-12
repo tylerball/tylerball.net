@@ -1,0 +1,45 @@
+---
+title: kitchen
+layout: minimal
+---
+<style>
+body {
+  margin: 0;
+  padding: 1vw;
+  max-width: 100%;
+}
+
+.masonry-with-columns {
+  columns: 6 45vw;
+  column-gap: 1vw;
+}
+
+.masonry-with-columns > div {
+  margin: 0 1vw 1vw 0;
+  display: inline-block;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: calc(50vw / 1.7);
+}
+
+</style>
+<div class="masonry-with-columns">
+  <%
+    images = Dir.glob('source/kitchen/*.jpg').map do |image|
+      image_tag(image.gsub('source', ''))
+    end
+    images << partial(:youtube, locals: { id: '5fhivFB727M' })
+    images.shuffle.each do |image|
+  %>
+    <div>
+      <%= image.html_safe %>
+    </div>
+  <% end %>
+</div>
