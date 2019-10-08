@@ -2,6 +2,7 @@
   <meta property="og:type" content="article" />
   <% desc = current_page.data[:description] ? current_page.data[:description] : strip_tags(current_page.summary) %>
   <meta property="og:description" content="<%= desc %>" />
+	<meta name="description" content="<%= desc %>">
 <% end %>
 <% wrap_layout current_page.data[:category] do %>
   <%= yield %>

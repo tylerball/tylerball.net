@@ -15,7 +15,11 @@
 
     <meta property="og:url" content="https://tylerball.net<%= current_page.url %>" />
     <meta property="og:title" content="<%= title %>" />
-    <%= yield_content :og_extra %>
+    <% if content_for?(:og_extra) %>
+      <%= yield_content :og_extra %>
+    <% else %>
+      <meta name="description" content="Photos, music and words by Tyler Ball.">
+    <% end %>
     <%= yield_content :og_image %>
   </head>
 
