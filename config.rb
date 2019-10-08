@@ -45,6 +45,7 @@ end
 page 'photos/ongoing/*', layout: :ongoing
 ignore 'photos/album.html'
 ignore 'photos/album_grid.html'
+ignore 'stylesheets/all'
 
 ready do
   sitemap.resources.select { |resource| resource.is_a? Middleman::Blog::BlogArticle }
