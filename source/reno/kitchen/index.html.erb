@@ -32,7 +32,7 @@ iframe {
 </style>
 <div class="masonry-with-columns">
   <%
-    images = Dir.glob('source/kitchen/*.jpg').map do |image|
+    images = Dir.glob('source/reno/kitchen/*.jpg').map do |image|
       image_tag(image.gsub('source', ''))
     end
     images << partial(:youtube, locals: { id: '5fhivFB727M' })
