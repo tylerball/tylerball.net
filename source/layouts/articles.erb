@@ -3,6 +3,9 @@
   <% desc = current_page.data[:description] ? current_page.data[:description] : strip_tags(current_page.summary) %>
   <meta property="og:description" content="<%= desc %>" />
 	<meta name="description" content="<%= desc %>">
+  <% if current_page.data[:thumb] %>
+    <meta property="og:image" content="<%= image_path(current_page.data[:thumb]) %>" />
+  <% end %>
 <% end %>
 <% wrap_layout current_page.data[:category] do %>
   <%= yield %>

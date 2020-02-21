@@ -5,7 +5,7 @@
   essays += sitemap.resources.select { |p| p.data[:essay] && !p.path.index('/ongoing') }.reverse
   essays.each do |article| %>
     <div class="w-100 pb3 w-50-m w-third-l pa3-ns">
-      <% link_to article.path, class: 'w-100 h5 dt cover', style: "background-image: url(#{article.data[:thumb]});" do %>
+      <% link_to article.path, class: 'w-100 h5 dt cover', style: "background-image: url(#{image_path(File.dirname(article.path) + '/' + article.data[:thumb])});" do %>
         <div class="dtc v-mid white ph4">
           <h3><%= article.data.title %></h3>
           <% if article.data.date %>
@@ -25,7 +25,7 @@
   <% photos_grouped_by_year.each do |year, articles| %>
     <div class="flex flex-column mb3-s w-third-ns pa3-ns">
       <% link_to category_path('photos') + year.to_s do %>
-        <%= image_tag articles.first.data[:thumb],
+        <%= image_tag image_path(File.dirname(articles.first.path) + '/' + articles.first.data[:thumb]),
           alt: "photos from #{year}"
         %>
       <% end %>

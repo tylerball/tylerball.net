@@ -1,9 +1,9 @@
 <% photo_url = if !article.data[:essay] &&
     current_page.path.include?('xml') ||
     article.data[:orientation] == 'vertical'
-      article.data[:photo]
+  image_path("/#{File.dirname(article.path)}/#{article.data[:photo]}")
     else
-      article.data[:thumb]
+      image_path("/#{File.dirname(article.path)}/#{article.data[:thumb]}")
     end %>
 <article>
   <%= partial :article_meta, locals: { article: article } %>
