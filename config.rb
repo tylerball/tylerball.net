@@ -5,6 +5,14 @@ helpers AssetHelper
 
 Time.zone = "America/New_York"
 
+configure :production do
+  set :hostname, 'https://tylerball.net'
+end
+
+configure :development do
+  set :hostname, 'http://localhost:4567'
+end
+
 set :markdown,
   smartypants: true,
   footnotes: true,

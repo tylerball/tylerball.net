@@ -4,7 +4,8 @@
   <meta property="og:description" content="<%= desc %>" />
 	<meta name="description" content="<%= desc %>">
   <% if current_page.data[:thumb] %>
-    <meta property="og:image" content="<%= image_path(current_page.data[:thumb]) %>" />
+    <meta property="og:image" content="<%= config[:hostname] %><%= image_path(current_page.data[:thumb]) %>" />
+    <meta property="twitter:image" content="<%= config[:hostname] %><%= image_path(current_page.data[:thumb]) %>" />
   <% end %>
 <% end %>
 <% wrap_layout current_page.data[:category] do %>

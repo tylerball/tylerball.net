@@ -4,9 +4,9 @@
 content_for :page_classes, classes.join(' ') %>
 <% content_for :og_image do %>
   <% if current_page.data[:thumb] %>
-    <meta property="og:image" content="<%= image_path(current_page.data[:thumb]) %>" />
+    <meta property="og:image" content="<%= config[:hostname] %><%= image_path(current_page.data[:thumb]) %>" />
   <% else %>
-    <meta property="og:image" content="<%= image_path(current_page.data[:photo]) %>" />
+    <meta property="og:image" content="<%= config[:hostname] %><%= image_path(current_page.data[:photo]) %>" />
   <% end %>
 <% end %>
 <% wrap_layout :layout do %>
