@@ -101,7 +101,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     redcarpet (3.4.0)
-    rmagick (3.2.0)
+    rmagick (4.1.2)
     sassc (2.2.1)
       ffi (~> 1.9)
     servolux (0.13.0)
