@@ -2,13 +2,15 @@ import Swiper from 'swiper';
 const basicLightbox = require('basiclightbox');
 
 function init() {
-  new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    slidesPerView: 'auto',
-    paginationClickable: true,
-    keyboardControl: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
+  document.querySelectorAll('.swiper').forEach((el) => {
+    new Swiper(el.querySelector('.swiper-container'), {
+      pagination: el.querySelector('.swiper-pagination'),
+      slidesPerView: 'auto',
+      paginationClickable: true,
+      keyboardControl: true,
+      nextButton: el.querySelector('.swiper-button-next'),
+      prevButton: el.querySelector('.swiper-button-prev'),
+    });
   });
 };
 
