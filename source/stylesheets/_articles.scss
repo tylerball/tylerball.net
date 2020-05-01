@@ -34,6 +34,14 @@ article {
     background-color: rgba(0, 0, 0, .05);
     padding: 0.5em;
   }
+
+  .swiper-container {
+    height: auto;
+  }
+
+  .swiper-wrapper {
+    align-items: center;
+  }
 }
 
 .meta {

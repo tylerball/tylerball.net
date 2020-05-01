@@ -1,0 +1,142 @@
+---
+title: 'van build part i: demolition'
+published: true
+date: 2020-05-01
+tags: van
+thumb: thumb.jpg
+---
+
+<%= image_tag 'thumb.jpg' %>
+
+If you want to renovate a 35-year old RV, it's best to
+let it sit behind the house for five or six months to make sure you really want
+to.
+
+Originally we wanted to buy a late model work van, specifically a Dodge
+Promaster, as is the trend. It would be a blank
+slate of sheet metal with few windows for one to apply megawatts of solar, a bathroom and [his and
+her's iMacs][imacs] and live out the [#vanlife fantasy][vanlife]. Just kidding.
+
+"Van Life" fits so easily into the wide genre of aspirational media to arrive
+online in the last decade. It combines our institutional dissatisfaction with our current
+situation with the American love of gear, and if this bro with dreads and
+a chestpiece can do it, so can we.
+
+But our plan is more humble—to build a practical base for camping, canoe trips
+and possibly a temporary home for us when we move out for some
+planned renovations. We don't plan on living in it full time. So when our vintage
+Chevy showed up on Kijiji we did some math. We figured it would save us a lot
+of money up front, probably cost a bit more in maintenance in the long run, but
+for the amount we'd use it, it would be worth it.
+
+READMORE
+
+### the van
+
+<%= image_tag 'tough-chevy-trucks.jpg', class: 'w-50-ns fr-ns ml2-ns' %>
+
+What we bought is a 1984 Chevy G20 'Horizon'. It started its life as a
+standard G20 van with a [305 V8][305], had its roof cut off and outfitted as an
+RV by Intervec, earning the Horizon badge. Ours supposedly spent much of its life
+stored indoors south of the border, so it has low miles and little rust
+underneath.
+
+When first converted to an RV, it was equipped with the following:
+
+- shower, with propane water heater
+- auxiliary propane heater
+- air conditioning (factory, in the dash)
+- propane stove
+- propane fridge
+- sink and water pump
+- toilet
+- 3 water tanks: black, grey and fresh
+
+Over the years systems fail and most people disconnect and remove them. When we
+got it, the following remained:
+
+- sink and water pump
+- toilet
+- 3 water tanks
+- 100W of solar feeding 2 6V golf cart batteries, installed by the previous
+    owner
+
+We will be removing everything—down to the steel—and eventually reinstalling
+only the fresh water tank, water pump, solar and batteries. Everything about how
+they're installed and connected is going to change. I'll talk more about these
+systems in later posts.
+
+### demolition
+
+The first step is to remove most of the interior of the van. The furniture
+inside is cheaply made, musty, heavy and its layout isn't ideal. There is a
+loft bed above the front seats on a platform that extends at night, a bench
+seat lengthwise behind the driver seat that converts to a bed, neither of which
+are ideal for two people sleeping in the van for extended periods. The rear of
+the van is occupied by the remains of the shower, some storage and a closet. A
+clean slate will allow us to insulate the walls, install conduit for wiring and
+build furnishings and storage exactly to our needs.
+
+We did most of the work in a couple afternoons. The star of the show was the
+[DeWalt DCS367B reciprocating saw][dewalt], a tool I bought last year that was more of
+a want than a need, but made quick work of a few cutting jobs that otherwise
+would have required tedious removal of screws.
+
+<video autoplay muted loop class="mw-100">
+    <source src="<%= asset_path :mp4, 'demo-timelapse.mp4' %>" type="video/mp4">
+    <source src="<%= asset_path :webm, 'demo-timelapse.webm' %>" type="video/webm">
+</video>
+
+### vehicle wiring
+
+The next big job was to get the dashboard off, install a new stereo receiver,
+speakers and make sense of some of the wiring. There were decades of disconnected
+and disused circuits to clean up.
+
+<div class="relative mb5">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide"><%= image_tag 'wiring-1.jpg', alt: '' %></div>
+          <div class="swiper-slide"><%= image_tag 'wiring-2.jpg', alt: '' %></div>
+          <div class="swiper-slide"><%= image_tag 'wiring-3.jpg', alt: '' %></div>
+          <div class="swiper-slide"><%= image_tag 'wiring-4.jpg', alt: '' %></div>
+          <div class="swiper-slide"><%= image_tag 'wiring-5.jpg', alt: '' %></div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next">&gt;</div>
+    <div class="swiper-button-prev">&lt;</div>
+</div>
+
+The radio I went with is the [Pioneer DMH-C2550NEX][pioneer]. We have a
+Carplay-capable unit in our other vehicle and I'm spoiled for it, but the G20
+predates the [DIN standard][din] so fitting a double DIN deck inside the dash
+would be tricky, requiring a lot of cutting and likely fabricating some kind of
+bracket. This Pioneer unit has a separate screen connected by cable to
+a single DIN box housing its circuitry. This allows you to mount the screen on
+a non-standard dash and hide the guts somewhere inside.
+
+I made a cardboard template from the dash and fabricated a mount for the screen
+out of a piece of oak I had. I also drilled a hole in it for a [USB/3.5mm audio
+jack][usbmount] panel and another for the hands-free mic.
+
+<div class="flex">
+    <div class="ph2"><%= image_tag 'stereo-1.jpg' %></div>
+    <div class="ph2"><%= image_tag 'stereo-2.jpg' %></div>
+</div>
+
+Getting the dash back in took most of an afternoon. Lots of screws to match to
+holes and vents to position perfectly so it could slide in.
+
+<%= image_tag 'dash-finished.jpg' %>
+
+In the next post we'll cover some body repair, painting and insulation.
+
+
+[vanlife]:https://www.newyorker.com/magazine/2017/04/24/vanlife-the-bohemian-social-media-movement
+[305]:https://en.wikipedia.org/wiki/Chevrolet_small-block_engine#305
+[imacs]:https://www.youtube.com/watch?v=wapg3iJE9Es&t=226s
+[dewalt]:https://amzn.to/35frM2T
+[pioneer]:https://www.crutchfield.ca/p_130DMC2550/Pioneer-DMH-C2550NEX.html
+[din]:https://en.wikipedia.org/wiki/ISO_7736
+[usbmount]:https://amzn.to/2SqXkgX
