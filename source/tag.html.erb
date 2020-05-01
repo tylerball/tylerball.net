@@ -1,0 +1,5 @@
+<h1><span class="fw3">tag:</span> <%= tagname %></h1>
+
+<% articles.each do |article| %>
+  <%= partial "list_#{article.data.category}", locals: { article: article } %>
+<% end %>

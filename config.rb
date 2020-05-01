@@ -48,6 +48,7 @@ activate :blog do |blog|
     }
   }
   blog.year_template = 'calendar.html'
+  blog.tag_template = 'tag.html'
 end
 
 page 'photos/ongoing/*', layout: :ongoing

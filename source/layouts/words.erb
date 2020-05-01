@@ -6,5 +6,9 @@
     <%= yield %>
   </article>
 
+  <% unless current_page.tags.empty? %>
+    tags: <% current_page.tags.each_with_index do |tag, i| %><%= link_to tag, "/tags/#{tag}" %><% unless i == current_page.tags.size - 1 %>, <% end %><% end %>
+  <% end %>
+
   <%= partial :pagination %>
 <% end %>

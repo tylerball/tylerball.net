@@ -1,0 +1,7 @@
+<h1>tags</h1>
+
+<ul class="list pl0">
+<% blog.tags.sort.each do |tag, articles| %>
+  <li class="mb2"><%= link_to tag, "tags/#{tag}" %></li>
+<% end %>
+</ul>
