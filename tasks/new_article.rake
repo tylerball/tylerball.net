@@ -9,7 +9,7 @@ task :new_article do
   dir = "source/words/#{Date.today.strftime('%Y/%m')}/#{input.parameterize}"
   FileUtils.mkdir_p(dir)
   content = "---\n"
-  content << "title: #{input}\n"
+  content << "title: \"#{input}\"\n"
   content << "published: false\n"
   content << "date: #{date}\n"
   content << "---\n\n"
