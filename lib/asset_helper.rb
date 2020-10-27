@@ -6,6 +6,6 @@ module AssetHelper
     manifest = JSON.parse(File.read(MANIFEST_PATH))
     asset_path = manifest[path]
     raise "Can't find #{path} in webpack assets. See manifest.json for complete list." unless asset_path
-    File.absolute_path(asset_path, '/')
+    "#{config[:hostname]}#{File.absolute_path(asset_path, '/')}"
   end
 end
