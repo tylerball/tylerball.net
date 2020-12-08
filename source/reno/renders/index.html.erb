@@ -1,0 +1,27 @@
+---
+title: renders
+layout: reno
+---
+<style>
+body {
+  margin: 0;
+  padding: 1vw;
+  max-width: 100%;
+}
+
+img {
+  max-height: 100vh;
+}
+</style>
+<div>
+  <%
+    images = Dir.glob(['source/reno/renders/*.jpg']).map do |image|
+      image_tag(URI.escape(image.gsub('source', '')))
+    end
+    images.sort.each do |image|
+  %>
+    <div class="tc">
+      <%= image.html_safe %>
+    </div>
+  <% end %>
+</div>

@@ -32,7 +32,7 @@ iframe {
 </style>
 <div class="masonry-with-columns">
   <%
-    images = Dir.glob(['source/reno/bathroom/*.jpg', 'source/reno/bathroom/*.png']).map do |image|
+    images = Dir.glob(['source/reno/inspiration/bathroom/*.jpg', 'source/reno/inspiration/bathroom/*.png']).map do |image|
       image_tag(URI.escape(image.gsub('source', '')))
     end
     images.shuffle.each do |image|
