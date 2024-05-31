@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'middleman'
-gem 'nokogiri', '~> 1.10.8'
+gem 'nokogiri', '~> 1.16.5'
 gem 'redcarpet'
 gem 'rake'
 
